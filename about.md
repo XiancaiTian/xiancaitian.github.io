@@ -7,11 +7,7 @@ I am a data analyst with great passion for data-driven decision making. I have w
 
 In my spare time, I enjoy reading good books, watching quality movies, photography, and doing a variety of sports (mainly running and body building).
 
-<br/>
-
 <img src="../imgs/profile_cropped.jpeg?" alt="me" style="max-width:300px;"/>
-
-<br/>
 
 *Have a growth mindset, **grit + techniques + efficiency** can make us be good at anything.*
 
