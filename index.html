@@ -15,7 +15,7 @@ title: Home 主页
     <span class="post-date">{{ post.date | date_to_string }}</span>
 
     {{ post.content | split: '<!-- more -->' | first }}
-    <a style="cursor:pointer; display:inline-block; padding:0 .5em; font-size: .9em; font-style:Italic;" href="{{ post.url }}">Read More </a>
+    <a style="cursor:pointer; display:inline-block; font-size: .9em;" href="{{ post.url }}">Read More </a>
 
   </div>
   {% endfor %}
