@@ -331,6 +331,8 @@ tbody tr:nth-child(odd) th {
 .page,
 .post {
   margin-bottom: 4em;
+  padding-bottom: 3em;
+  border-bottom: 1.2px dashed #ccc;
 }
 
 /* Blog post or page title */
