@@ -9,11 +9,11 @@ In my spare time, I enjoy reading good books, watching quality movies, photograp
 
 <br/>
 
-![it’s me]({{ site.img_path }}/profile.jpeg?raw=true) 
+![it’s me](../imgs/profile_cropped.jpeg?raw=true) 
 
 <br/>
 
-*I firmly believen that **grit + good methods + efficienc** can make us be good at anything.*
+*Have a growth mindset, **grit + techniques + efficiency** can make us be good at anything.*
 
 <br/>
 
