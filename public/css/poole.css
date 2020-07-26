@@ -333,8 +333,7 @@ tbody tr:nth-child(odd) th {
   margin-bottom: 4em;
 }
 
-.posts, 
-.post{
+.posts .post{
   padding-bottom: 3em;
   border-bottom: 1.2px dashed #ccc;
 }
