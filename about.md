@@ -9,7 +9,7 @@ In my spare time, I enjoy reading good books, watching quality movies, photograp
 
 <br/>
 
-![it’s me](../imgs/profile_cropped.jpeg?raw=true) 
+<img src="../imgs/profile_cropped.jpeg?" alt="me" style="max-width:300px;"/>
 
 <br/>
 
