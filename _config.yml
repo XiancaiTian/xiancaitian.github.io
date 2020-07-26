@@ -1,0 +1,36 @@
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink: /:categories/:title
+encoding: UTF-8
+
+production_url : https://xiancaitian.github.io
+
+highlighter: pygments
+
+# Setup
+title:               Shawn's blog
+tagline:             'Writing is Thinking'
+description:         'Programmer, data enthusiast & avid student of life.'
+url:                 http://shawn.life
+baseurl:             ''
+img_path:            '/imgs'
+paginate:            5
+
+# About/contact
+author:
+  name:              Shawn TIAN
+  url:               https://www.linkedin.com/in/xiancai/
+  email:             mrtianxc@gmail.com
+
+# commentcomments :
+comments :
+  provider : disqus
+  disqus :
+    short_name : xiancainame
+
+# Custom vars
+version:             1.0.0
+
+# Gems
+plugins: [jekyll-paginate]
