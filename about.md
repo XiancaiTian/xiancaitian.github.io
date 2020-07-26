@@ -13,7 +13,7 @@ When I am not working, I spent my time reading useless but interesting books, wa
 
 *I am a big fan of Feynman technique.*
 
-*I firmly believen that grit + good methods + efficiency can make us be good at anything.*
+*I firmly believen that **grit + good methods + efficienc** can make us be good at anything.*
 
 <br/>
 
