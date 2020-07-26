@@ -9,6 +9,10 @@ In my spare time, I enjoy reading good books, watching quality movies, photograp
 
 <br/>
 
+![模型概要]({{ site.img_path}}/profile.jpeg?raw=true) 
+
+<br/>
+
 *I firmly believen that **grit + good methods + efficienc** can make us be good at anything.*
 
 <br/>
