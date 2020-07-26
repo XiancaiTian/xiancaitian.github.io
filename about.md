@@ -5,11 +5,11 @@ title: About Me 关于我
 
 I am a data analyst with great passion for data-driven decision making. I have worked on data-powered projects including web-based data visualisation systems, data visualisations, BI automation and data mining (mainly intelligent transportation related) projects.
 
-In my spare time, I enjoy reading good books, watching quality movies, photography, and sports (mainly running and body building).
+In my spare time, I enjoy reading good books, watching quality movies, photography, and doing a variety of sports (mainly running and body building).
 
 <br/>
 
-![模型概要]({{ site.img_path}}/profile.jpeg?raw=true) 
+![it’s me]({{ site.img_path }}/profile.jpeg?raw=true) 
 
 <br/>
 
