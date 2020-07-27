@@ -1,0 +1,15 @@
+I"…<p>When working with Jupyter Notebook, in many cases we want to share some code blocks between different notebooks to reduce code redundancy.</p>
+
+<!-- more -->
+
+<p>Good news is that in newer Jupyter, we can achieve this with the <strong>%run</strong> magic command, which allows us to run one jupyter notebook inside another.</p>
+
+<p>For example, we have a jupyter notebook named utility.ipynb, which defines some utility functions to be used by a set of notebooks. Instead of copy and paste the code in each notebook, we can simply add the following code into the top of each notebook:</p>
+
+<pre><code>%run utility.ipynb
+</code></pre>
+
+<p>Running the above magic command give us to whatever is defined in utility.ipynb, including both variables and functions.</p>
+
+<p><a href="http://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-run target=&quot;_blank&quot;">Official doc</a></p>
+:ET

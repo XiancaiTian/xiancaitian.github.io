@@ -1,0 +1,316 @@
+I"�L<p>知乎原文：<a href="https://zhuanlan.zhihu.com/p/32454374">BI转数据挖掘，我的脱产学习路</a></p>
+
+<p>为了避免文章被误读，声明以下几点：</p>
+
+<p><strong>不赞成</strong>裸辞，并建议不到万不得已不要裸辞，在另外一个回答解释过原因：<a href="https://www.zhihu.com/question/67809547/answer/257966899">22岁非计算机专业工科妹子裸辞转行程序员，已自学Python两个月准备开始OJ，给自己一年时间可行吗？</a></p>
+
+<p>不打广告。。。误解我打广告的同学先认真读文章。。。</p>
+
+<p>每个人的基础和感兴趣的方向不一样，学习计划应因人而异（我的学习计划比较乱。。），最好根据自身情况合理制定学习计划。</p>
+
+<p>共勉。</p>
+
+<p>18年11月1日 更</p>
+
+<!-- more -->
+<p><br /></p>
+
+<h2>辞职心路</h2>
+
+<p>简单交待下本人背景：本科偏商科专业（辅修EE），研究生（一年项目）算正式入IT坑，毕业后有 <strong>一年全栈开发+1年BI开发（Business Intelligence，商务智能）工作经验，无统计背景，编程渣</strong>（具体体现为面向对象等编程范式不熟练，不懂数据结构和算法）。因为对数据行业的兴趣，17年6月底辞职，10月收获数据挖掘／开发offer。</p>
+
+<p>辞职前在新加坡某地产开发公司做BI开发，主要用<strong>BI软件+数据库</strong>帮公司建立自动化的数据平台，以前几周才能搞定的Excel报表，分分钟自动生成推送到boss们的邮箱，不要太方便。但因为各种原因，做这份工作不是很开心，也得不到满足感。尝试过一段时间边工作边自学后，我发现效率很低，因为工作已经消耗大部分的时间和精力。下定决心后，瞒着家里人裸辞了。</p>
+
+<p>当时计划在三到四个月的时间内完成数据科学的学习并找到一份相关工作（显然低估了数据科学的入门门槛，同时对就业市场过于乐观）。</p>
+
+<p><br /></p>
+
+<h2>学习计划制定</h2>
+
+<p>数据科学是一个大坑且深不可测，什么都要懂，什么都得会。参考过许多知乎跟Quora的相关问答，结合<a href="http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram">The Data Science Venn Diagram</a>，我了解到一名合格的数据科学家需要具备五方面的核心能力：</p>
+
+<ul>
+  <li>数学和统计（底层建筑）</li>
+  <li>编程（计算工具）</li>
+  <li>机器学习（黑魔法）</li>
+  <li>行业知识（商业直觉）</li>
+  <li>沟通技巧（分享传授）</li>
+</ul>
+
+<div style="text-align:center">
+  <p><img src="/imgs/2018-11-01/01.jpg?raw=true" alt="THE DATA SCIENCE VENN DIAGRAM" />
+<em>THE DATA SCIENCE VENN DIAGRAM</em></p>
+</div>
+
+<p>为了记录学习进度，我把要学习的知识点整理归纳做成了技能树，每完成一个知识点的学习就点亮对应的分支。</p>
+
+<div style="text-align:center">
+  <p><img src="/imgs/2018-11-01/02.jpg?raw=true" alt="数据科学技能树" />
+<em>数据科学技能树</em></p>
+</div>
+
+<p><br /></p>
+<h2>自学历程</h2>
+
+<pre><code class="language-python">for month in range(July, November): work_hard()
+</code></pre>
+
+<h3>七月</h3>
+
+<p><strong>[关键词]</strong> Python编程，线性代数基础，概率统计基础，机器学习基础</p>
+
+<p><strong>1. Python学习</strong></p>
+
+<p>R和Python就好比数据科学里的倚天剑和屠龙刀，几乎所有招聘单位都要求求职者掌握其中至少一门。我在研究生时期有使用R的经验，但无法接受其怪异的语法风格。反之，Python作为一门通用的编程语言，其简明规范的语法加上丰富的第三方数据科学模块，对我来说更有吸引力。Python分为2和3两个版本，如果你像我一样刚入门学Python，不要犹豫直接学Python3吧（Python核心团队已经宣布将在2020年停止支持Python 2）。</p>
+
+<blockquote>
+  <p>用Anaconda管理Python编程环境</p>
+</blockquote>
+
+<p><a href="https://www.anaconda.com/distribution/#macos">Anaconda</a> 是Python语言的免费增值开源发行版，用于进行大规模数据处理, 预测分析和科学计算, 致力于简化包的管理和部署。 Anaconda使用软件包管理系统Conda进行包管理，通过Anaconda我们可以很方便的对不同项目的Python编程环境进行管理。</p>
+
+<blockquote>
+  <p>编辑器选择</p>
+</blockquote>
+
+<p>推荐两个工具：</p>
+
+<p>Pycharm： 非常强大的一款Python IDE，商业版本收费（学校学生和教职人员有免费版），社区版本免费。</p>
+
+<p>Jupyter Notebook或者Jupyter Lab： 相当于R里面的RStudio，非常适合用来做探索性分析和绘制可视化图形。</p>
+
+<blockquote>
+  <p>熟悉Python语法</p>
+</blockquote>
+
+<p>廖雪峰的<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000">Python3编程教程</a>是入门的绝佳选择，教程后面部分难度跳动较大，装饰器等较难的部分可以先跳过去。认真撸几遍教程，手动敲几遍教程代码后，基本就掌握了Python的基础语法，可以开始学习更高级的Python编程了。</p>
+
+<blockquote>
+  <p>了解pandas的使用</p>
+</blockquote>
+
+<p><a href="https://pandas.pydata.org/">pandas</a>是用Python进行科学计算和数据处理一个非常强大的模块，它提供的DataFrame数据结构以及围绕DataFrame的一系列数据索引方法，统计函数和绘图函数，让数据的提取，清洁，读写和可视化变得更简单。</p>
+
+<p>课程链接： <a href="https://www.coursera.org/learn/python-data-analysis">Introduction to Data Science in Python</a></p>
+
+<p>此门课程不需要你有过多统计学基础，高中数学知识够用了。</p>
+
+<div style="text-align:center">
+  <p><img src="/imgs/2018-11-01/03.jpg?raw=true" alt="课程证书" />
+<em>课程证书</em></p>
+</div>
+
+<blockquote>
+  <p>利用Python绘制可视化图形</p>
+</blockquote>
+
+<p>无论是初级阶段的数据探索分析，还是最终的分析结果呈现，数据可视化都必不可少。<a href="https://matplotlib.org/">matplotlib</a>, <a href="https://seaborn.pydata.org/">seaborn</a>，<a href="https://seaborn.pydata.org/">bokeh</a>是Python生态下最常用的几个可视化库。</p>
+
+<p>课程链接： <a href="https://www.coursera.org/learn/python-plotting">Applied Plotting, Charting, Data Representation in Python</a></p>
+
+<div style="text-align:center">
+  <p><img src="/imgs/2018-11-01/04.jpg?raw=true" alt="课程证书" />
+<em>课程证书</em></p>
+</div>
+
+<p>PS: 这门课程可以跳过，在具体项目中练习用Python绘制图形就好了。</p>
+
+<p><strong>2. 线性代数知识的复习</strong></p>
+
+<p>之前知乎有答主推荐Youtube上一个特别棒的线性代数视频教程，已经有人搬到了B站，戳：<a href="https://space.bilibili.com/88461692?from=search&amp;seid=17858642889162238492#/channel/detail?cid=9450">3Blue1Brown</a></p>
+
+<p>认真看了一遍，就算完成线性代数基本概念复习了。</p>
+
+<p><strong>3. 概率和统计学知识复习</strong></p>
+
+<p>统计学知识是数据科学的基础，不懂统计很容易陷入知其然不知其所以然的困境，更无法对模型结果给出具有统计意义的解释。</p>
+
+<p>为了重拾概率统计学知识，我首先快速过了一遍<a href="https://book.douban.com/subject/3803611/">《head first data analysis》</a>，建立对数据分析最基本的认识。接着又阅读了<a href="https://book.douban.com/subject/3193988/">《head first statistics》</a>，这本书结合现实生活中的例子讲解了基本的统计学概念和常见概率分布，值得细读。</p>
+
+<p>另外还有Udacity的免费课程Intro to Inferential Statistics，课后练习题帮助我巩固了之前书上学到的知识点。</p>
+
+<p><strong>4. 机器学习入门</strong></p>
+
+<p>课程链接： <a href="https://www.coursera.org/learn/machine-learning">Andrew Ng Machine Learning</a></p>
+
+<p>虽然硕士阶段上过机器学习的课程，但长时间不用都还给老师了。特别推荐Andrew Ng的这门课程，是<a href="https://link.zhihu.com/?target=https%3A//see.stanford.edu/Course/CS229">斯坦福机器学习课程C229</a>的简化版。课程内容深入浅出，对数学基础的要求不高，能做简单的求导和矩阵运算就够了。课程对几种传统机器学习方法的原理和适用场景都作了讲解。</p>
+
+<p>区别于其他的机器学习课程，这门课程要求我们用Matlab或Octave动手实现算法，大部分代码都给了模板，所以不用担心不会Matlab或者Octave。通过动手实现算法，我们可以对算法原理有更深入了解，所以千万别偷懒，作业要认真对待。</p>
+
+<div style="text-align:center">
+  <p><img src="/imgs/2018-11-01/05.jpg?raw=true" alt="课程证书" />
+<em>课程证书</em></p>
+</div>
+
+<h3>八月</h3>
+
+<p><strong>[关键词]</strong>  <a href="https://www.udacity.com/course/machine-learning-engineer-nanodegree--nd009t">Udacity机器学习工程师纳米学位</a></p>
+
+<p><strong>1. Udacity 机器学习工程师纳米学位</strong></p>
+
+<p>考虑过很久报名 优达学城（Udacity）的机器学习纳米学位课程。在Quora上做了不少调研，觉得值得一试，恰好8月份的时候他们有促销活动，前两个月只要100美元/月，我盘算着两个月内完成课程（事实证明这完全是可行的），这样总共只需花费200美元。</p>
+
+<p>很多人抱怨Udacity收费过高，尤其相比Udemy和Coursera等其他网课平台。我个人认为Udacity的课程性价比蛮高的，它提供了其他网课平台没有的人工服务，比如作业评阅，代码审阅，简历，cover letter和Linkedin档案修改，甚至还有一对一面试指导等服务。这样算下来真心划算。</p>
+
+<p>Udacity授课采用<strong>小段视频课程（1～15分钟）+ 课后练习 + 项目</strong>的形式，大部分机器学习知识点都有涉及，没有太难的数学推导，很适合初学者。如果有同学上这个课，一定要重视课后的习题和项目，从我的体验看，做项目的学习效果要好于看视频教程。</p>
+
+<p><strong>2. 完善简历，Linkedin，Github</strong></p>
+
+<p>一直提醒自己，<strong>不能等觉得自己准备好了才开始找工作，学习是无穷无尽的</strong>。因此从第二个月起就开始为接下来找工作做准备。</p>
+
+<p>Udacity的纳米学位除了课程本身外，还提供职业指导服务，我就是在他们的帮助下反复修改和完善了简历，Linkedin以及GitHub （老师真的很耐心），对日后顺利找到工作很有帮助。</p>
+
+<p><strong>简历是找工作的名片，一定要多花时间反复修改。</strong></p>
+
+<p><strong>3. 阅读《Python for Data Analysis》</strong></p>
+
+<p>这本书是pandas的作者写的，对Numpy和Pandas的使用做了详细讲解，值得花时间读读。但不要企图把里面的知识点和API都死记硬背下来，最好的阅读方法是先快速过一遍重要章节，待日后使用时碰到具体问题再回头翻书。</p>
+
+<p>截止8月底，我的纳米学位只剩下一个深度学习的项目，以及最后的大项目没有完成。根据个人经验，如果每天能保证至少3个半小时的有效学习时间，2个月是完全可以拿下这门课程的。</p>
+
+<p>PS: 七，八月这两个月的学习状态还不错，心态也较稳。但到了8月末的时候，人变得很焦躁，乃至中断学习回国玩去了。。</p>
+
+<h3>九月</h3>
+
+<p><strong>[关键词]</strong>  SQL，数据库，增长，国内求职</p>
+
+<p>八月底回国后，先陪家人飞重庆，成都玩了一个礼拜。旅行结束后只在家呆了三天便马不停蹄飞往北京，一呆就是二十天。在北京期间一直发烧生病，见了大学毕业后一直没见面的几个好兄弟，也面了几家互联网公司，暂且不表。</p>
+
+<p>九月的学习效率非常差，只零零散散的根据国内面试时遇到的问题突击了部分知识点：</p>
+
+<ul>
+  <li>增长黑客（growth hacking）相关知识知识</li>
+  <li>AB test 及其在业界的应用</li>
+  <li>阅读<a href="https://book.douban.com/subject/6434328/">《谁说菜鸟不会数据分析》</a>，熟悉商业分析基本术语</li>
+</ul>
+
+<p>数据库知识：</p>
+
+<ul>
+  <li>数据库模型三大范式</li>
+  <li>数据表索引的创建</li>
+  <li>SQL习题训练 （<a href="https://leetcode.com/">Leetcode SQL</a>，<a href="https://mode.com/sql-tutorial/introduction-to-sql/">The SQL Tutorial for Data Analysis</a>）</li>
+</ul>
+
+<h3>十月</h3>
+
+<p><strong>[关键词]</strong>   算法／数据结构，新加坡求职</p>
+
+<p>九月底回的新加坡，先后拿到了一些面试，包括咨询公司，互联网创业公司，石油交易公司，中资企业，大学研究中心。新加坡公司的面试流程不比国内，节奏较慢，整个十月我都是一边学习，一边投简历，一边面试。</p>
+
+<p><strong>1. 算法和数据结构</strong></p>
+
+<p>就算搞机器学习，数据结构／算法也非常重要，使用不同的数据结构和算法，效率可以千差万别。但那个时候已经没有时间从头开始啃算法了，我采取的学习策略是把最基本的知识点啃下来。</p>
+
+<ul>
+  <li>熟悉常见排序算法原理和运算复杂度</li>
+  <li>熟悉Python基本数据结构（LIST, SET, DICTIONARY, TUPLE）的索引，插入，删除，排序等的运算复杂度</li>
+  <li>熟悉二叉树，递归算法，队列，堆栈等</li>
+</ul>
+
+<p><strong>2. Python多线程和多进程的区别及应用</strong></p>
+
+<p>在面试时被问到了，因此花了些时间了解了Multi-Threads和Multi-Processes的区别，以及如何运用它们加快计算。</p>
+
+<p><strong>3. leetcode简单题的练习</strong></p>
+
+<p>做了部分简单和中等难度的算法题</p>
+
+<p><strong>4. 个人博客的改版</strong></p>
+
+<p>在面试时给面试官看过博客上记录和展示的几个项目。</p>
+
+<p><strong>5. 巩固统计学的知识</strong></p>
+
+<p>复习之前学的统计知识。</p>
+
+<p><strong>6. Kaggle项目</strong></p>
+
+<p>做了几个简单的Kaggle项目。</p>
+
+<p><strong>7. 一个简单的爬虫，自然语言处理项目</strong></p>
+
+<p>用Python爬了新加坡某求职网站数据分析方师的相关岗位信息，并做了简单的数据求职市场分析。</p>
+
+<h3>十一月</h3>
+
+<p><strong>[关键词]</strong>   深度学习，Python爬虫</p>
+
+<p>11月初的时候终于等来了offer，求职期间一共面了五家公司，最终拿到3个offer（数据挖掘研发工程师，BI开发，数据分析专家），另外两家也进到最后一轮面试，最终选择了研发工程师的职位。</p>
+
+<p>拿到工作offer后压力小了很多，但学习不可以停步。</p>
+
+<p><strong>1. Udacity 深度学习项目</strong></p>
+
+<p>通过这个项目学习了用keras和tensorflow构建深度学习模型进行简单的图像识别。</p>
+
+<p><strong>2. Python爬虫</strong></p>
+
+<p>考虑到新工作可能需要写爬虫收集数据（后发现并不需要），就想着趁剩余不多的自由学习时间加强爬虫方面的能力。以前用R写过一些简单的爬虫脚本，加上有一年的全栈开发经验，大大降低了我学习爬虫的难度。</p>
+
+<blockquote>
+  <p>Youtube上的爬虫教程</p>
+</blockquote>
+
+<p>Youtube上有很多非常不错的教程资源，入门Python爬虫我看的是 <a href="https://www.youtube.com/watch?v=nRW90GASSXE&amp;list=PL6gx4Cwl9DGA8Vys-f48mAH9OKSUyav0q">Python Web Crawler Tutorial</a>。讲解特别好，虽然视频不长，但爬虫基本知识点都讲到了，还示范了如何实现多线程爬虫。这个教程我是慢慢慢慢啃完来的，直到能在不看源码的情况下实现一遍程序。</p>
+
+<p>已经有热情的同学将视频搬运到B站了，可惜没有字幕。。 <a href="https://www.bilibili.com/video/av7274410/?from=search&amp;seid=13112971298512882425">B站链接</a></p>
+
+<p>如果想直接参考源代码，戳 <a href="https://github.com/buckyroberts/Spider">Github</a></p>
+
+<blockquote>
+  <p>阅读<a href="https://book.douban.com/subject/26284925/">《Web Scraping With Python》</a></p>
+</blockquote>
+
+<p>内容非常全面，看起来也不难，如果想对用Python爬虫有更全面的了解，推荐抽时间看看这本书。</p>
+
+<blockquote>
+  <p>Udemy课程 <a href="https://www.udemy.com/join/login-popup/?next=/scrapy-tutorial-web-scraping-with-python/learn/v4/overview">Scrapy: Powerful Web Scraping &amp; Crawling with Python</a></p>
+</blockquote>
+
+<p>从常用的库Requests， Beautiful Soup 框架Scrapy都有介绍 (Scrapy真的很快)</p>
+
+<blockquote>
+  <p>准备udacity的最后一个项目</p>
+</blockquote>
+
+<p>计划做自然语言处理方面的项目</p>
+
+<p><br /></p>
+<h2>Q&amp;A</h2>
+
+<blockquote>
+  <p>我不喜欢现在的工作，要不要裸辞自学？</p>
+</blockquote>
+
+<p>裸辞有风险，辞职需谨慎，请参考 <a href="https://www.zhihu.com/question/67809547/answer/257966899">另一个问题下的答案</a> 。</p>
+
+<blockquote>
+  <p>Udacity的项目怎么样，是不是完成项目就能找到工作了？</p>
+</blockquote>
+
+<p>不要期望完成一个网上学习项目就能找到工作，Udacity的项目不错，但是离工作要求还有距离，也许有人完成Udacity的项目后就顺利找到了工作，但每个人的基础不一样。</p>
+
+<blockquote>
+  <p>我应该学习Python还是R？</p>
+</blockquote>
+
+<p>Python和R都是很好的数据科学编程语言。我的建议是，如果你搞统计或者经济金融，没有编程背景，也不想往工程方向走，那就学R。反之，假如你已有一定编程基础，热爱编程，那建议你学习Python。时间充足且的话两样都学吧，你在职场上的竞争优势将更加明显。</p>
+
+<blockquote>
+  <p>学习到什么程度可以开始找工作？</p>
+</blockquote>
+
+<p>我的建议是，从开始自学的那一刻开始，你就应该为找工作做准备了。关注招聘信息，修改简历，开始动手做小项目。为什么呢？因为数据科学这个坑太深了，你永远感觉有东西要学，永远觉得自己不合格，所以不能等待，<strong>fail fast is better than fail late.</strong></p>
+
+<blockquote>
+  <p>我需要投入多少时间才能完成学习？</p>
+</blockquote>
+
+<p>以我自己为例，我不是一个自控力强的人，为了营造良好的学习环境，我很少呆家里学。好在新加坡到处有公共图书馆，免费Wi-Fi的速度也还不错，因此大部分时间都跑图书馆学习，图书馆人多就去星巴克。我的常规学习时间是从早上10点图书馆开门，一直学到下午六，七点，中间的这八个多钟头，采用<a href="https://zh.wikipedia.org/wiki/%E7%95%AA%E8%8C%84%E5%B7%A5%E4%BD%9C%E6%B3%95">番茄工作法</a>进行记录，每学习半个钟头短休息6分钟，每学习一个半小时长休息18分钟。其实，我们每个人的学习效率并没有自己想象的那么高。像我自己，一天下来能累积有效学习四个半小时就挺满意，如果能累积学习6小时甚至会很有成就感。<strong>有效学习时间是纯学习时间，不玩手机，不刷社交网络，不离开座位。</strong></p>
+
+<div style="text-align:center">
+  <p><img src="/imgs/2018-11-01/06.jpg?raw=true" alt="番茄时钟记录表" />
+<em>番茄时钟记录表</em></p>
+</div>
+:ET

@@ -26,7 +26,7 @@ Reach me at *xiancai.tian@yahoo.com*.
 
 💻 [Github](https://github.com/XiancaiTian/)
 
-✒️ [知乎主页](https://www.zhihu.com/people/shawngo/posts)
+✒️ [知乎](https://www.zhihu.com/people/shawngo/posts)
 
-📷 [摄影作品](https://tuchong.com/8045265/)
+📷 [摄影](https://tuchong.com/8045265/)
 

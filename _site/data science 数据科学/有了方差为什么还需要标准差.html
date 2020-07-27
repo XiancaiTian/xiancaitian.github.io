@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+  <title>
+    
+      有了方差为什么还需要标准差？ &middot; Shawn's blog
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Programmer, data enthusiast & avid student of life.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About Me 关于我</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/archive">By Date 按日期</a>
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/categories">By Subject 按主题</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/projects">Projects 项目</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2020. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Shawn's blog</a>
+            <small>Writing is Thinking</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">有了方差为什么还需要标准差？</h1>
+  <span class="post-date">04 Sep 2018</span>
+  <p>知乎原回答：<a href="https://www.zhihu.com/question/20534502/answer/350310648">有了方差为什么需要标准差？</a></p>
+
+<p>什么是方差？</p>
+
+<p>方差是用来衡量数据离散程度的一个统计值，计算公式：</p>
+
+<p><img src="../imgs/variance.jpg" width="50%" /></p>
+
+<p>可以看出，方差的计算使用了数据集的所有数值，而不只是个别极值（如极大值和极小值），因此方差可以很好的反映数据的整体离散程度。</p>
+
+<!-- more -->
+
+<p>从公式理解，方差是数据偏离平均值距离的平方的平均值。可为什么是偏离平均值距离的平方的平均值，而不是偏离平均值距离的平均值呢？直觉上后者更容易理解才对。</p>
+
+<p>完全正确，因此就有了标准差，对方差取平方根就得到了标准差:</p>
+
+<p><img src="../imgs/sd.jpg" width="50%" /></p>
+
+<p>标准差同样反映数据的离散程度，但因为它跟原始数据为同一个量纲，更加符合我们的直觉，也更方便解释。</p>
+
+<p>例如我们可以说小明比全班平均身高高 0.1m (标准差)，但不能说小明比全班身高高 {0.1}^2m （方差)。</p>
+
+<p>以上即方差和标准差的联系和区别。</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/data%20science%20%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/%E5%A6%82%E4%BD%95%E8%A7%A3%E8%AF%BB%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E7%9A%84%E7%BB%93%E6%9E%9C">
+            如何解读线性回归的结果？
+            <small>04 Mar 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/data%20science%20%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF-%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6-%E8%80%8C%E4%B8%8D%E6%98%AF-%E6%9C%80%E5%A4%A7%E6%A6%82%E7%8E%87">
+            为什么是“最大似然”而不是“最大概率”？
+            <small>03 Mar 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/%E7%9F%A5%E4%B9%8E%E5%9B%9E%E7%AD%94/%E7%9C%8B%E5%AE%8C%E9%92%B1%E9%92%9F%E4%B9%A6-%E5%9B%B4%E5%9F%8E-%E6%98%AF%E4%B8%80%E7%A7%8D%E4%BB%80%E4%B9%88%E6%84%9F%E8%A7%89">
+            看完钱钟书《围城》，是一种什么感觉？
+            <small>25 Oct 2019</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-58112028-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-58112028-2');
+</script>
+
+
+  </body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+  <title>
+    
+      机器学习和数据挖掘的界限在哪里？ &middot; Shawn's blog
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Programmer, data enthusiast & avid student of life.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About Me 关于我</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/archive">By Date 按日期</a>
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/categories">By Subject 按主题</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/projects">Projects 项目</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2020. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Shawn's blog</a>
+            <small>Writing is Thinking</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">机器学习和数据挖掘的界限在哪里？</h1>
+  <span class="post-date">11 May 2018</span>
+  <p>知乎原回答：<a href="https://www.zhihu.com/question/41189863/answer/389155123">机器学习和数据挖掘的界限在哪里？</a></p>
+
+<p>借用台大林轩田教授在他的<a href="https://www.coursera.org/learn/ntumlone-mathematicalfoundations/lecture/XItlt/machine-learning-and-other-fields">机器学习基石课程</a>里对二者区别给出的解释：</p>
+
+<p><img src="/imgs/2018-05-11/data_mining_vs_machine_learning.jpg?raw=true" alt="" /></p>
+
+<!-- more -->
+
+<p><strong>定义</strong></p>
+
+<p>机器学习(ML)：从数据中学习一个假设g，来逼近真实的目标函数f，主要用于预测。</p>
+
+<p>数据挖掘(DM)：从大量数据中寻找“有趣的信息”，比如经典案例“啤酒与尿布”，“啤酒”和“尿布”两个看上去没有关系的商品摆放在一起进行销售帮助获得了很好的销售收益，商品之间的这种关联性就是一种有趣的信息，发现有趣的信息的过程就是数据挖掘。</p>
+
+<p><strong>区别与联系</strong></p>
+
+<p>如果DM要寻找的有趣的信息正好是g，即一个逼近真实目标函数的假设，这种情况下数据挖掘和机器学习就没区别，比如KDDCup这样的数据挖掘比赛中 DM就等同于ML。但很多情况下数据挖掘的目的不是寻找g，而是其他有趣的信息，这时候DM就不能等同于ML。
+如果DM要寻找的有趣的信息跟ML里要寻找的g相关，那DM和ML就成了相辅相成的关系。
+传统的DM还包括另一个领域：大数据库的高效计算。</p>
+
+<p><strong>总结</strong></p>
+
+<p>ML和DM二者非常相似，但有一些区别，现实应用中往往密不可分。</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/data%20science%20%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/%E5%A6%82%E4%BD%95%E8%A7%A3%E8%AF%BB%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E7%9A%84%E7%BB%93%E6%9E%9C">
+            如何解读线性回归的结果？
+            <small>04 Mar 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/data%20science%20%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF-%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6-%E8%80%8C%E4%B8%8D%E6%98%AF-%E6%9C%80%E5%A4%A7%E6%A6%82%E7%8E%87">
+            为什么是“最大似然”而不是“最大概率”？
+            <small>03 Mar 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/%E7%9F%A5%E4%B9%8E%E5%9B%9E%E7%AD%94/%E7%9C%8B%E5%AE%8C%E9%92%B1%E9%92%9F%E4%B9%A6-%E5%9B%B4%E5%9F%8E-%E6%98%AF%E4%B8%80%E7%A7%8D%E4%BB%80%E4%B9%88%E6%84%9F%E8%A7%89">
+            看完钱钟书《围城》，是一种什么感觉？
+            <small>25 Oct 2019</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-58112028-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-58112028-2');
+</script>
+
+
+  </body>
+</html>

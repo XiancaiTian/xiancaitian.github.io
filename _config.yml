@@ -10,18 +10,18 @@ highlighter: pygments
 
 # Setup
 title:               Shawn's blog
-tagline:             'Writing is Thinking'
+tagline:             'Writing is thinking'
 description:         'Programmer, data enthusiast & avid student of life.'
-url:                 http://shawn.life
+url:                 https://xiancaitian.github.io
 baseurl:             ''
 img_path:            '/imgs'
-paginate:            5
+paginate:            6
 
 # About/contact
 author:
   name:              Shawn TIAN
   url:               https://www.linkedin.com/in/xiancai/
-  email:             mrtianxc@gmail.com
+  email:             xiancai.tian@yahoo.com
 
 # commentcomments :
 comments :

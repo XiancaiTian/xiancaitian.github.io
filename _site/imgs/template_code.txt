@@ -1,0 +1,5 @@
+插入图片
+<div style="text-align:center" markdown="1">
+![THE DATA SCIENCE VENN DIAGRAM]({{ site.img_path }}/2018-11-01/01.jpg?raw=true)
+*THE DATA SCIENCE VENN DIAGRAM*
+</div>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+  <title>
+    
+      如何解读线性回归的结果？ &middot; Shawn's blog
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Programmer, data enthusiast & avid student of life.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About Me 关于我</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/archive">By Date 按日期</a>
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/categories">By Subject 按主题</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/projects">Projects 项目</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2020. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Shawn's blog</a>
+            <small>Writing is Thinking</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">如何解读线性回归的结果？</h1>
+  <span class="post-date">04 Mar 2020</span>
+  <p>线性回归是一种简单又强大的统计模型，可用于检测两个或者多个变量之间的线性关系。常用统计软件包括R，Python，SPSS等都有相应模块帮助我们轻松建立线性回归模型。但面对软件给出的一长串统计结果时，很多朋友不知道如何解释这些数字，从而无法对模型的有效性给出合理诊断。</p>
+
+<p><strong>通过阅读本文，你将能理解报告中核心数字所代表含义，更精确的阐释回归分析结果。</strong></p>
+
+<!-- more -->
+
+<p>一般来说，回归分析报告主要包含以下三个部分：</p>
+
+<h3 id="1模型摘要">1.模型摘要</h3>
+
+<p><img src="/imgs/2020-03-04/model_summary.jpeg?raw=true" alt="模型概要" /> <em>模型概要</em></p>
+
+<p>摘要告诉我们模型的拟合性如何。表中的 \(R\) 叫相关系数， \(R^2\)，Adjusted \(R^2\)叫校正决定系数，这三个指标统计意义相似，通常情况下只看\(R^2\) 就好了。比如 \(R^2=0.668\)表示回归模型可以解释因变量\(y\)的方差的 \(66.8\%\)，拟合性还是不错的。</p>
+
+<h3 id="2方差分析">2.方差分析</h3>
+
+<p><img src="/imgs/2020-03-04/anova.jpeg?raw=true" alt="ANOVA分析" /> ANOVA分析</p>
+
+<p>方差分析的本质是检测 \(R^2\) 是否显著大于0。重点在表格最后两列的F统计值和\(Sig.\) （表示对应 \(p\) 值)。上表中 \(p=0.004&lt;0.05\) ， 假设检验有效，表明\(R^2\)显著大于0，也就是说至少有一个自变量和 \(\hat{y}\)存在显著的线性关系，因此我们的回归模型有统计学意义。</p>
+
+<h3 id="3回归系数">3.回归系数</h3>
+
+<p><img src="/imgs/2020-03-04/coefficients.jpeg?raw=true" alt="回归系数" /> <em>回归系数</em></p>
+
+<p>回归系数表格列出了输出模型的偏回归系数估计值（本例只有自变量 \(High\)和常数项 \(Constant\)。表格给出了非标准化系数（Unstandardized Coefficients），标准化系数（Standardized Coefficients），以及各偏回归系数（是否为0）的t检验结果。</p>
+
+<p>非标准化系数表示各变量的拟合系数，比如 \(High\)的系数为\(-0.651\)，表示\(High\)每增加一个单位，\(\hat{y}\)将减小\(0.651\)个单位。\(Constant=856642.174\)表示\(High\)取0时，\(\hat{y}\)的预测值为\(7856642.174\)。最后两列分别为\(t\)值和\(p\)值，我们只要看非常数项的 \(p\) 值就好了，\(p&lt;0.05\)表示该偏回归系数统计有效，否则统计无效。</p>
+
+<p>综上，我们可建立回归方程</p>
+
+\[\hat{y}=-0.651*High+7856642.174\]
+
+<p><strong>特别说明：</strong>纳入哪些自变量进行回归预测是由研究者根据专业和经验结合统计结果决定，而不是单单根据统计结果来决定。当自变量较多需要进行筛选自变量时，不同的筛选方法、不同的纳入剔除标准，也会得到完全不同的结果，入选的不一定是最好的，没有纳入的也未必没有统计学意义。</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/data%20science%20%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF-%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6-%E8%80%8C%E4%B8%8D%E6%98%AF-%E6%9C%80%E5%A4%A7%E6%A6%82%E7%8E%87">
+            为什么是“最大似然”而不是“最大概率”？
+            <small>03 Mar 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/%E7%9F%A5%E4%B9%8E%E5%9B%9E%E7%AD%94/%E7%9C%8B%E5%AE%8C%E9%92%B1%E9%92%9F%E4%B9%A6-%E5%9B%B4%E5%9F%8E-%E6%98%AF%E4%B8%80%E7%A7%8D%E4%BB%80%E4%B9%88%E6%84%9F%E8%A7%89">
+            看完钱钟书《围城》，是一种什么感觉？
+            <small>25 Oct 2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/%E7%9F%A5%E4%B9%8E%E5%9B%9E%E7%AD%94/%E5%A6%82%E4%BD%95%E8%AF%84%E4%BB%B7%E7%94%B5%E8%A7%86%E5%89%A7-%E5%A4%A9%E9%81%93">
+            如何评价电视剧《天道》？
+            <small>14 Apr 2019</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-58112028-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-58112028-2');
+</script>
+
+
+  </body>
+</html>

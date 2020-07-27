@@ -1,0 +1,24 @@
+I"�<p>知乎原回答：<a href="https://www.zhihu.com/question/41189863/answer/389155123">机器学习和数据挖掘的界限在哪里？</a></p>
+
+<p>借用台大林轩田教授在他的<a href="https://www.coursera.org/learn/ntumlone-mathematicalfoundations/lecture/XItlt/machine-learning-and-other-fields">机器学习基石课程</a>里对二者区别给出的解释：</p>
+
+<p><img src="/imgs/2018-05-11/data_mining_vs_machine_learning.jpg?raw=true" alt="" /></p>
+
+<!-- more -->
+
+<p><strong>定义</strong></p>
+
+<p>机器学习(ML)：从数据中学习一个假设g，来逼近真实的目标函数f，主要用于预测。</p>
+
+<p>数据挖掘(DM)：从大量数据中寻找“有趣的信息”，比如经典案例“啤酒与尿布”，“啤酒”和“尿布”两个看上去没有关系的商品摆放在一起进行销售帮助获得了很好的销售收益，商品之间的这种关联性就是一种有趣的信息，发现有趣的信息的过程就是数据挖掘。</p>
+
+<p><strong>区别与联系</strong></p>
+
+<p>如果DM要寻找的有趣的信息正好是g，即一个逼近真实目标函数的假设，这种情况下数据挖掘和机器学习就没区别，比如KDDCup这样的数据挖掘比赛中 DM就等同于ML。但很多情况下数据挖掘的目的不是寻找g，而是其他有趣的信息，这时候DM就不能等同于ML。
+如果DM要寻找的有趣的信息跟ML里要寻找的g相关，那DM和ML就成了相辅相成的关系。
+传统的DM还包括另一个领域：大数据库的高效计算。</p>
+
+<p><strong>总结</strong></p>
+
+<p>ML和DM二者非常相似，但有一些区别，现实应用中往往密不可分。</p>
+:ET

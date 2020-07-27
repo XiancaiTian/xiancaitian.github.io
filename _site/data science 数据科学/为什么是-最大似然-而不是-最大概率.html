@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+  <title>
+    
+      为什么是“最大似然”而不是“最大概率”？ &middot; Shawn's blog
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Programmer, data enthusiast & avid student of life.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About Me 关于我</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/archive">By Date 按日期</a>
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/categories">By Subject 按主题</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/projects">Projects 项目</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2020. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Shawn's blog</a>
+            <small>Writing is Thinking</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">为什么是“最大似然”而不是“最大概率”？</h1>
+  <span class="post-date">03 Mar 2020</span>
+  <p>为什么是<strong>“最大似然”</strong>而不是<strong>“最大概率”</strong>？</p>
+
+<p>虽然两者经常被混用不加区别，“迂腐”的统计学家们仍然“固执”要将两者区分开来，其中缘由可从下面等式说起：</p>
+
+\[L(\mu, \sigma; data) = P(data;\mu, \sigma)\]
+
+<p>以正态分布 \(N(\mu, \sigma)\)和一组观测到的数据data为例。上面等式左边表示似然，右边表示概率密度，两者等值。但含义上右边讲的是<strong>“已知分布参数为 \(\mu\)和 \(\sigma\) 的情况下观察到data的概率是多少”</strong>，左边讲的是<strong><em>“观测到一组数据data，对应分布参数为\(\mu\)和</em> \(\sigma\) 的似然为多少”</strong>。</p>
+
+<p>综上，给定分布参数下观察到某数据的概率密度<strong>在数值上等于</strong>给定某数据下该参数为某值的似然。然而，尽管两者大小相等，侧重点却截然不同，前者侧重于数据而后者侧重于参数。这也是为什么我们称“最大似然”而不是“最大概率”的原因。</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/data%20science%20%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/%E5%A6%82%E4%BD%95%E8%A7%A3%E8%AF%BB%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E7%9A%84%E7%BB%93%E6%9E%9C">
+            如何解读线性回归的结果？
+            <small>04 Mar 2020</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/%E7%9F%A5%E4%B9%8E%E5%9B%9E%E7%AD%94/%E7%9C%8B%E5%AE%8C%E9%92%B1%E9%92%9F%E4%B9%A6-%E5%9B%B4%E5%9F%8E-%E6%98%AF%E4%B8%80%E7%A7%8D%E4%BB%80%E4%B9%88%E6%84%9F%E8%A7%89">
+            看完钱钟书《围城》，是一种什么感觉？
+            <small>25 Oct 2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/%E7%9F%A5%E4%B9%8E%E5%9B%9E%E7%AD%94/%E5%A6%82%E4%BD%95%E8%AF%84%E4%BB%B7%E7%94%B5%E8%A7%86%E5%89%A7-%E5%A4%A9%E9%81%93">
+            如何评价电视剧《天道》？
+            <small>14 Apr 2019</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-58112028-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-58112028-2');
+</script>
+
+
+  </body>
+</html>

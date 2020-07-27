@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Shawn's blog</title>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/"/>
+ <updated>2020-07-27T14:04:08+08:00</updated>
+ <id>http://localhost:4000</id>
+ <author>
+   <name>Shawn TIAN</name>
+   <email>mrtianxc@gmail.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>如何解读线性回归的结果？</title>
+   <link href="http://localhost:4000/data%20science%20%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/%E5%A6%82%E4%BD%95%E8%A7%A3%E8%AF%BB%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E7%9A%84%E7%BB%93%E6%9E%9C"/>
+   <updated>2020-03-04T00:00:00+08:00</updated>
+   <id>http://localhost:4000/data%20science%20%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/如何解读线性回归的结果</id>
+   <content type="html">&lt;p&gt;线性回归是一种简单又强大的统计模型，可用于检测两个或者多个变量之间的线性关系。常用统计软件包括R，Python，SPSS等都有相应模块帮助我们轻松建立线性回归模型。但面对软件给出的一长串统计结果时，很多朋友不知道如何解释这些数字，从而无法对模型的有效性给出合理诊断。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;通过阅读本文，你将能理解报告中核心数字所代表含义，更精确的阐释回归分析结果。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;一般来说，回归分析报告主要包含以下三个部分：&lt;/p&gt;
+
+&lt;h3 id=&quot;1模型摘要&quot;&gt;1.模型摘要&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/imgs/2020-03-04/model_summary.jpeg?raw=true&quot; alt=&quot;模型概要&quot; /&gt; &lt;em&gt;模型概要&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;摘要告诉我们模型的拟合性如何。表中的 \(R\) 叫相关系数， \(R^2\)，Adjusted \(R^2\)叫校正决定系数，这三个指标统计意义相似，通常情况下只看\(R^2\) 就好了。比如 \(R^2=0.668\)表示回归模型可以解释因变量\(y\)的方差的 \(66.8\%\)，拟合性还是不错的。&lt;/p&gt;
+
+&lt;h3 id=&quot;2方差分析&quot;&gt;2.方差分析&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/imgs/2020-03-04/anova.jpeg?raw=true&quot; alt=&quot;ANOVA分析&quot; /&gt; ANOVA分析&lt;/p&gt;
+
+&lt;p&gt;方差分析的本质是检测 \(R^2\) 是否显著大于0。重点在表格最后两列的F统计值和\(Sig.\) （表示对应 \(p\) 值)。上表中 \(p=0.004&amp;lt;0.05\) ， 假设检验有效，表明\(R^2\)显著大于0，也就是说至少有一个自变量和 \(\hat{y}\)存在显著的线性关系，因此我们的回归模型有统计学意义。&lt;/p&gt;
+
+&lt;h3 id=&quot;3回归系数&quot;&gt;3.回归系数&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/imgs/2020-03-04/coefficients.jpeg?raw=true&quot; alt=&quot;回归系数&quot; /&gt; &lt;em&gt;回归系数&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;回归系数表格列出了输出模型的偏回归系数估计值（本例只有自变量 \(High\)和常数项 \(Constant\)。表格给出了非标准化系数（Unstandardized Coefficients），标准化系数（Standardized Coefficients），以及各偏回归系数（是否为0）的t检验结果。&lt;/p&gt;
+
+&lt;p&gt;非标准化系数表示各变量的拟合系数，比如 \(High\)的系数为\(-0.651\)，表示\(High\)每增加一个单位，\(\hat{y}\)将减小\(0.651\)个单位。\(Constant=856642.174\)表示\(High\)取0时，\(\hat{y}\)的预测值为\(7856642.174\)。最后两列分别为\(t\)值和\(p\)值，我们只要看非常数项的 \(p\) 值就好了，\(p&amp;lt;0.05\)表示该偏回归系数统计有效，否则统计无效。&lt;/p&gt;
+
+&lt;p&gt;综上，我们可建立回归方程&lt;/p&gt;
+
+\[\hat{y}=-0.651*High+7856642.174\]
+
+&lt;p&gt;&lt;strong&gt;特别说明：&lt;/strong&gt;纳入哪些自变量进行回归预测是由研究者根据专业和经验结合统计结果决定，而不是单单根据统计结果来决定。当自变量较多需要进行筛选自变量时，不同的筛选方法、不同的纳入剔除标准，也会得到完全不同的结果，入选的不一定是最好的，没有纳入的也未必没有统计学意义。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>为什么是“最大似然”而不是“最大概率”？</title>
+   <link href="http://localhost:4000/data%20science%20%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF-%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6-%E8%80%8C%E4%B8%8D%E6%98%AF-%E6%9C%80%E5%A4%A7%E6%A6%82%E7%8E%87"/>
+   <updated>2020-03-03T00:00:00+08:00</updated>
+   <id>http://localhost:4000/data%20science%20%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/为什么是“最大似然”而不是“最大概率”？</id>
+   <content type="html">&lt;p&gt;为什么是&lt;strong&gt;“最大似然”&lt;/strong&gt;而不是&lt;strong&gt;“最大概率”&lt;/strong&gt;？&lt;/p&gt;
+
+&lt;p&gt;虽然两者经常被混用不加区别，“迂腐”的统计学家们仍然“固执”要将两者区分开来，其中缘由可从下面等式说起：&lt;/p&gt;
+
+\[L(\mu, \sigma; data) = P(data;\mu, \sigma)\]
+
+&lt;p&gt;以正态分布 \(N(\mu, \sigma)\)和一组观测到的数据data为例。上面等式左边表示似然，右边表示概率密度，两者等值。但含义上右边讲的是&lt;strong&gt;“已知分布参数为 \(\mu\)和 \(\sigma\) 的情况下观察到data的概率是多少”&lt;/strong&gt;，左边讲的是&lt;strong&gt;&lt;em&gt;“观测到一组数据data，对应分布参数为\(\mu\)和&lt;/em&gt; \(\sigma\) 的似然为多少”&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;综上，给定分布参数下观察到某数据的概率密度&lt;strong&gt;在数值上等于&lt;/strong&gt;给定某数据下该参数为某值的似然。然而，尽管两者大小相等，侧重点却截然不同，前者侧重于数据而后者侧重于参数。这也是为什么我们称“最大似然”而不是“最大概率”的原因。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>看完钱钟书《围城》，是一种什么感觉？</title>
+   <link href="http://localhost:4000/%E7%9F%A5%E4%B9%8E%E5%9B%9E%E7%AD%94/%E7%9C%8B%E5%AE%8C%E9%92%B1%E9%92%9F%E4%B9%A6-%E5%9B%B4%E5%9F%8E-%E6%98%AF%E4%B8%80%E7%A7%8D%E4%BB%80%E4%B9%88%E6%84%9F%E8%A7%89"/>
+   <updated>2019-10-25T00:00:00+08:00</updated>
+   <id>http://localhost:4000/%E7%9F%A5%E4%B9%8E%E5%9B%9E%E7%AD%94/看完钱钟书《围城》，是一种什么感觉？</id>
+   <content type="html">&lt;p&gt;知乎原回答：&lt;a href=&quot;https://www.zhihu.com/question/50557373/answer/869827344&quot;&gt;看完钱钟书《围城》，是一种什么感觉？&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;一开始不喜欢赵辛楣这个角色，觉得他自大，心眼小，跪舔苏文纨。往后看此人魅力方慢慢展现，他学识渊博，重义轻财，通达人情，执行力强，不失幽默感。因此虽遭遇动荡，终归越混越好，哪怕被一座围城困住，至少有几分走出去的资本。&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;方鸿渐，空有一身读书人的傲气，看似样样通，实则样样不精。少了家人，岳父，朋友助力，就变得很无力了，一手牌越打越烂，成了全无用处之人，连曾经仰慕他的女性也都看低了他，最后困在围城里出去不得。&lt;/p&gt;
+
+&lt;p&gt;这世上也不乏李梅亭之类的人，自私自利，小家子气，装腔作势，因为撞了狗屎运或攀了高枝混到一定社会地位，纵然为许多人不耻却满不在乎，毕竟他们眼里还是名利来得实在。&lt;/p&gt;
+
+&lt;p&gt;如此看来，辛楣真乃男神也。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>如何评价电视剧《天道》？</title>
+   <link href="http://localhost:4000/%E7%9F%A5%E4%B9%8E%E5%9B%9E%E7%AD%94/%E5%A6%82%E4%BD%95%E8%AF%84%E4%BB%B7%E7%94%B5%E8%A7%86%E5%89%A7-%E5%A4%A9%E9%81%93"/>
+   <updated>2019-04-14T00:00:00+08:00</updated>
+   <id>http://localhost:4000/%E7%9F%A5%E4%B9%8E%E5%9B%9E%E7%AD%94/如何评价电视剧《天道》？</id>
+   <content type="html">&lt;p&gt;知乎原回答：&lt;a href=&quot;https://www.zhihu.com/question/20865270/answer/651100328&quot;&gt;如何评价电视剧《天道》？&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;编剧通过丁元英在古城隐居和扶贫王庙村两件事将一票主要人物联结成了一个由强势文化和弱势文化所构成的社会单元。强势文化者信奉自然规律，遵守客观法则，笃信自强自立；弱势文化者期盼救世主和破格获取。两种文化属性注定了两个群体迥然不同的命运，决定了他们在社会阶层所能攀爬的高度及为社会创造价值的大小。我倒不认为弱势文化就应该被批判而强势文化就应该被颂扬，两者都能以各自合适的生存之道体现生命的价值，坦然不失偏颇即可。弱势文化者凭朴素生存之道能活得有尊严和精彩；强势文化下的人物，也可能因为一步错错万步而走向深渊。&lt;/p&gt;
+
+&lt;p&gt;主要想说说剧中几个印象深刻的人物。&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;丁元英其人，用肖亚文的话 “说他是鬼可以，说他是魔也可以，就是不能把他当人”。他文化学识，艺术领悟能力，对事物运作的通透，人性的洞察，以及“扒拉铜板”的能力都远非一般人所能相比。在常人看来，他性格怪异，不拘于传统文化伦理近乎不通人情，从来逆行倒施而不按常理出牌。这种人高于常人太多，和常人的思考本不在一个层级，现实生活中不可能遇到，把他单纯理解为艺术创作的产物更为合理。“更高级的哲人独处着，这并不是因为他想孤独，而是因为在他周围找不到他的同类。” 对物质消费需求极低，而对精神文明消费需求极高是丁元英这类高级哲人的共性，也是丁元英把自己隐遁于古城足不出户过日子的合理性前提，同时是他能吸引芮小丹的本质原因。因为已经自成哲学思想体系，外人看来扑簌迷离的问题在他这里如明镜般通透，我们不曾看到丁元英询问别人意见，他做事情也从不拖泥带水，所做的一切都是那么自然而富有自信，既然通达了客观规律，那遵循规律去做便好了，这大概就是所谓”道法自然“。从扶贫王庙村创立格律诗开始，丁就算准了后面事态的发展走向，他把经济市场理解为一场零和游戏，从一开始就定下了”劫富济贫“的战略方针，格律诗的生存之道便是从乐圣的市场里分一杯羹。兵法里说”知己知彼，方能百战不殆“，把宏观环境，己方敌方优势劣势及心理都摸清楚了，剩下的只剩有的放矢的执行，这种打法能以少胜多，以弱胜强也就合乎情理了。这让我想起了王阳明用心学来指导打仗的故事。丁元英这样的人太高，离我们太远。&lt;/p&gt;
+
+&lt;p&gt;芮小丹是另外一个理想化的人物，她出身成长于优渥的家庭环境，青春美丽，敢爱敢恨，疾恶如仇，活得潇洒自在，极具慧根，放对了地方就能大有作为。虽然学识上不及丁，但她自在潇洒的活法却连丁都自叹不如。芮扮演的是弱势文化者的救世主角色，无论是其作为警察惩恶扬善的职业要求，还是他请求丁元英在王庙村创造一个奇迹的行为，都透露了她的这一身份。但救世主注定无法拯救弱势文化下的众生，甚至都不能自救，芮小丹的死就是对这一事实最残忍而直接的揭露。&lt;/p&gt;
+
+&lt;p&gt;肖亚文是剧里我最喜爱的角色之一，她聪明能干，待人接物礼貌大方，对待朋友足够真诚，有从警官学校毕业出来学生的英气。她认识到自身力量的有限性，但善于借助大人物的力量放大自己的能量。但她依附大人物的方式不是溜须拍马，而是在合适的时候提供价值，担任丁元英助理期间，她谨言慎行，把每一件交给她的事情做的干净利落，丁从私募基金退出后又巧妙的将他安置在芮小丹身边以保持日后联系，格律诗遭遇官司危机时她挺身而出，不仅拒收高额诉讼代理费而且主动入股，都体现了她的睿智，胆魄和远见卓识，这是处于井底的格律诗三个音响发烧友创始人所看不到也难以理解的，用冯世杰的话来讲，她比他们三个男人更有种。这个”有种“就是智慧与胆识撑起来的决断。&lt;/p&gt;
+
+&lt;p&gt;欧阳雪，她是一个善良的人，一个人白手起家从摆地摊做到成古城数一数二的饭店已实属不容易，更难能可贵的是，她没有被这份成就冲昏头脑，她明白管理好饭店是自己能力所能及，也很享受这份小小的成就感，但经营和管理公司已然超出她的能力范围。当王庙村扶贫需要资金和法人时，她没有拒绝，一方面源于对丁元英的信任，一方面也想拉乡民们一把，在格律诗官司危机时，虽然内心痛苦无助，仍坦然接受了其他三人的退股要求，一个人扛下了风险与可能的损失，在格律诗曙光初现时能果断割舍股份，满心轻松欢喜回去经营饭店。像欧阳雪这样的人，可能做不了时代的弄潮儿，但清楚自己想要什么，不贪心，兢兢业业做好分内之事，也能过的充实快乐。&lt;/p&gt;
+
+&lt;p&gt;冯世杰，可能是出身最差的，老实本分，勤劳肯干，靠本事吃饭，在古城里拼出了自己的修车行。从影片开头他接待乡亲的方式就能看出这是一个不忘本的人，他一心想为村里的人谋一份生计，才有了后来的王庙村扶贫事件。格律诗成立以后，冯一直奋战于生产一线，想的是怎么让公司出好产品，让王庙村的村民多挣几个钱，他不抢风头，也不指望村民对自己感恩戴德。格律诗遭遇危机，三人一同退股时，冯世杰心里最过意不去，对丁元英和欧阳雪没有怨恨，并尽自己所能保留下来王庙村最核心的几条生产线，保住了好不容易建立起来的生产体系。从这些事情上来看，冯世杰虽然少了些魄力和胆识，但至少淳朴善良，脚踏实地。也因为如此，他成了唯一扒上井沿的人。&lt;/p&gt;
+
+&lt;p&gt;刘冰，弱势文化下的极具代表性的人物，他集合了弱势文化者的性格特点，软弱无胆识，心术不正，贪慕虚荣，不依靠自身实力实现自救，总想着有救世主或者天上掉下馅饼一夜暴富。好几次翻身的机会摆在眼前，都白白错失，最终葬送了年轻的生命。他是弱势文化下一个极端但富有启迪性的代表，他的死亡让观众注意到自己身上这样那样的毛病和人性弱点。他的死或许不是故事发展的必然需要，却是作者用来揭示和升华主题所不可缺少的。&lt;/p&gt;
+
+&lt;p&gt;“神即道，道法自然，如来”，这句话太深，通过这部剧，我们或许能看懂一点点。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>标准化(standardization)和归一化（normalization）</title>
+   <link href="http://localhost:4000/data%20science%20%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/%E6%A0%87%E5%87%86%E5%8C%96(standardization)%E5%92%8C%E5%BD%92%E4%B8%80%E5%8C%96-normalization"/>
+   <updated>2019-02-24T00:00:00+08:00</updated>
+   <id>http://localhost:4000/data%20science%20%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/标准化(standardization)和归一化（normalization）</id>
+   <content type="html">&lt;p&gt;知乎原文：&lt;a href=&quot;https://zhuanlan.zhihu.com/p/57541603&quot;&gt;标准化(standardization)和归一化（normalization）&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;注意，我们下面讨论的归一化和标准化针对的都是特征（数据列），而非针对样本（数据行）进行。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;归一化（Normalization）和标准化（Standardization）都是为了解决不同特征取值范围相差太大的问题。因为，如果部分特征的取值特别大而远超其他特征的值，那模型训练的结果就会被这少部分的特征所支配，从而错失了其他小值特征所含有用信息。&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2&gt;标准化&lt;/h2&gt;
+&lt;h3&gt;公式&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;z  = (x - u) / s&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;对每个值x，减去其所在列的平均值u，再除以所在列的标准差s，得到的就是标准化后的值z。每列的标准化独立进行，标准化后的数据每列的均值为0，标准差为1。&lt;/p&gt;
+
+&lt;h3&gt;工具&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html&quot;&gt;sklearn.preprocessing.StandardScaler&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;示例代码：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; from sklearn.preprocessing import StandardScaler
+&amp;gt;&amp;gt;&amp;gt; data = [[0, 0], [0, 0], [1, 1], [1, 1]]
+&amp;gt;&amp;gt;&amp;gt; scaler = StandardScaler()
+&amp;gt;&amp;gt;&amp;gt; scaler.fit(data)
+
+&amp;gt;&amp;gt;&amp;gt; print(scaler.mean_)
+[0.5 0.5]
+
+&amp;gt;&amp;gt;&amp;gt; print(scaler.transform(data))
+[[-1. -1.]
+ [-1. -1.]
+ [ 1.  1.]
+ [ 1.  1.]]
+
+&amp;gt;&amp;gt;&amp;gt; print(scaler.transform([[2, 2]]))
+[[3. 3.]]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;归一化&lt;/h2&gt;
+&lt;h3&gt;公式&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;z  = (x - min) / (max - min)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;对每个值x，减去其所在列的最小值min，再除以所在列的极差（最大值与最小值之差），得到的就是归一化后的值z。每列的归一化独立进行，归一化后的数据每列的取值范围为[0, 1]。&lt;/p&gt;
+
+&lt;h3&gt;工具&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html#sklearn.preprocessing.MinMaxScaler&quot;&gt;sklearn.preprocessing.MinMaxScaler&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;示例代码：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; from sklearn.preprocessing import MinMaxScaler
+&amp;gt;&amp;gt;&amp;gt; data = [[-1, 2], [-0.5, 6], [0, 10], [1, 18]]
+&amp;gt;&amp;gt;&amp;gt; scaler = MinMaxScaler()
+&amp;gt;&amp;gt;&amp;gt; scaler.fit(data)
+&amp;gt;&amp;gt;&amp;gt; print(scaler.data_max_)
+[ 1. 18.]
+
+&amp;gt;&amp;gt;&amp;gt; print(scaler.transform(data))
+[[0.   0.  ]
+ [0.25 0.25]
+ [0.5  0.5 ]
+ [1.   1.  ]]
+
+&amp;gt;&amp;gt;&amp;gt; print(scaler.transform([[2, 2]]))
+[[1.5 0. ]]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;总结&lt;/h2&gt;
+&lt;p&gt;两种特征缩放的方法都有它们的缺点，如果数据里面含有异常值（Outlier），那归一化会使得绝大部分数据都集中在一个极小的范围值内；而使用标准化转换后的数值可能很大，不像归一化那样有限定的取值范围。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>BI转数据挖掘，我的脱产学习路</title>
+   <link href="http://localhost:4000/data%20science%20%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/BI%E8%BD%AC%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98-%E6%88%91%E7%9A%84%E8%84%B1%E4%BA%A7%E5%AD%A6%E4%B9%A0%E8%B7%AF"/>
+   <updated>2018-11-01T00:00:00+08:00</updated>
+   <id>http://localhost:4000/data%20science%20%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/BI转数据挖掘，我的脱产学习路</id>
+   <content type="html">&lt;p&gt;知乎原文：&lt;a href=&quot;https://zhuanlan.zhihu.com/p/32454374&quot;&gt;BI转数据挖掘，我的脱产学习路&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;为了避免文章被误读，声明以下几点：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;不赞成&lt;/strong&gt;裸辞，并建议不到万不得已不要裸辞，在另外一个回答解释过原因：&lt;a href=&quot;https://www.zhihu.com/question/67809547/answer/257966899&quot;&gt;22岁非计算机专业工科妹子裸辞转行程序员，已自学Python两个月准备开始OJ，给自己一年时间可行吗？&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;不打广告。。。误解我打广告的同学先认真读文章。。。&lt;/p&gt;
+
+&lt;p&gt;每个人的基础和感兴趣的方向不一样，学习计划应因人而异（我的学习计划比较乱。。），最好根据自身情况合理制定学习计划。&lt;/p&gt;
+
+&lt;p&gt;共勉。&lt;/p&gt;
+
+&lt;p&gt;18年11月1日 更&lt;/p&gt;
+
+&lt;!-- more --&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2&gt;辞职心路&lt;/h2&gt;
+
+&lt;p&gt;简单交待下本人背景：本科偏商科专业（辅修EE），研究生（一年项目）算正式入IT坑，毕业后有 &lt;strong&gt;一年全栈开发+1年BI开发（Business Intelligence，商务智能）工作经验，无统计背景，编程渣&lt;/strong&gt;（具体体现为面向对象等编程范式不熟练，不懂数据结构和算法）。因为对数据行业的兴趣，17年6月底辞职，10月收获数据挖掘／开发offer。&lt;/p&gt;
+
+&lt;p&gt;辞职前在新加坡某地产开发公司做BI开发，主要用&lt;strong&gt;BI软件+数据库&lt;/strong&gt;帮公司建立自动化的数据平台，以前几周才能搞定的Excel报表，分分钟自动生成推送到boss们的邮箱，不要太方便。但因为各种原因，做这份工作不是很开心，也得不到满足感。尝试过一段时间边工作边自学后，我发现效率很低，因为工作已经消耗大部分的时间和精力。下定决心后，瞒着家里人裸辞了。&lt;/p&gt;
+
+&lt;p&gt;当时计划在三到四个月的时间内完成数据科学的学习并找到一份相关工作（显然低估了数据科学的入门门槛，同时对就业市场过于乐观）。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2&gt;学习计划制定&lt;/h2&gt;
+
+&lt;p&gt;数据科学是一个大坑且深不可测，什么都要懂，什么都得会。参考过许多知乎跟Quora的相关问答，结合&lt;a href=&quot;http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram&quot;&gt;The Data Science Venn Diagram&lt;/a&gt;，我了解到一名合格的数据科学家需要具备五方面的核心能力：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;数学和统计（底层建筑）&lt;/li&gt;
+  &lt;li&gt;编程（计算工具）&lt;/li&gt;
+  &lt;li&gt;机器学习（黑魔法）&lt;/li&gt;
+  &lt;li&gt;行业知识（商业直觉）&lt;/li&gt;
+  &lt;li&gt;沟通技巧（分享传授）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/imgs/2018-11-01/01.jpg?raw=true&quot; alt=&quot;THE DATA SCIENCE VENN DIAGRAM&quot; /&gt;
+&lt;em&gt;THE DATA SCIENCE VENN DIAGRAM&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;为了记录学习进度，我把要学习的知识点整理归纳做成了技能树，每完成一个知识点的学习就点亮对应的分支。&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/imgs/2018-11-01/02.jpg?raw=true&quot; alt=&quot;数据科学技能树&quot; /&gt;
+&lt;em&gt;数据科学技能树&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h2&gt;自学历程&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;for month in range(July, November): work_hard()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;七月&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;[关键词]&lt;/strong&gt; Python编程，线性代数基础，概率统计基础，机器学习基础&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Python学习&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;R和Python就好比数据科学里的倚天剑和屠龙刀，几乎所有招聘单位都要求求职者掌握其中至少一门。我在研究生时期有使用R的经验，但无法接受其怪异的语法风格。反之，Python作为一门通用的编程语言，其简明规范的语法加上丰富的第三方数据科学模块，对我来说更有吸引力。Python分为2和3两个版本，如果你像我一样刚入门学Python，不要犹豫直接学Python3吧（Python核心团队已经宣布将在2020年停止支持Python 2）。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;用Anaconda管理Python编程环境&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.anaconda.com/distribution/#macos&quot;&gt;Anaconda&lt;/a&gt; 是Python语言的免费增值开源发行版，用于进行大规模数据处理, 预测分析和科学计算, 致力于简化包的管理和部署。 Anaconda使用软件包管理系统Conda进行包管理，通过Anaconda我们可以很方便的对不同项目的Python编程环境进行管理。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;编辑器选择&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;推荐两个工具：&lt;/p&gt;
+
+&lt;p&gt;Pycharm： 非常强大的一款Python IDE，商业版本收费（学校学生和教职人员有免费版），社区版本免费。&lt;/p&gt;
+
+&lt;p&gt;Jupyter Notebook或者Jupyter Lab： 相当于R里面的RStudio，非常适合用来做探索性分析和绘制可视化图形。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;熟悉Python语法&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;廖雪峰的&lt;a href=&quot;https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000&quot;&gt;Python3编程教程&lt;/a&gt;是入门的绝佳选择，教程后面部分难度跳动较大，装饰器等较难的部分可以先跳过去。认真撸几遍教程，手动敲几遍教程代码后，基本就掌握了Python的基础语法，可以开始学习更高级的Python编程了。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;了解pandas的使用&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://pandas.pydata.org/&quot;&gt;pandas&lt;/a&gt;是用Python进行科学计算和数据处理一个非常强大的模块，它提供的DataFrame数据结构以及围绕DataFrame的一系列数据索引方法，统计函数和绘图函数，让数据的提取，清洁，读写和可视化变得更简单。&lt;/p&gt;
+
+&lt;p&gt;课程链接： &lt;a href=&quot;https://www.coursera.org/learn/python-data-analysis&quot;&gt;Introduction to Data Science in Python&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;此门课程不需要你有过多统计学基础，高中数学知识够用了。&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/imgs/2018-11-01/03.jpg?raw=true&quot; alt=&quot;课程证书&quot; /&gt;
+&lt;em&gt;课程证书&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;利用Python绘制可视化图形&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;无论是初级阶段的数据探索分析，还是最终的分析结果呈现，数据可视化都必不可少。&lt;a href=&quot;https://matplotlib.org/&quot;&gt;matplotlib&lt;/a&gt;, &lt;a href=&quot;https://seaborn.pydata.org/&quot;&gt;seaborn&lt;/a&gt;，&lt;a href=&quot;https://seaborn.pydata.org/&quot;&gt;bokeh&lt;/a&gt;是Python生态下最常用的几个可视化库。&lt;/p&gt;
+
+&lt;p&gt;课程链接： &lt;a href=&quot;https://www.coursera.org/learn/python-plotting&quot;&gt;Applied Plotting, Charting, Data Representation in Python&lt;/a&gt;&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/imgs/2018-11-01/04.jpg?raw=true&quot; alt=&quot;课程证书&quot; /&gt;
+&lt;em&gt;课程证书&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;PS: 这门课程可以跳过，在具体项目中练习用Python绘制图形就好了。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. 线性代数知识的复习&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;之前知乎有答主推荐Youtube上一个特别棒的线性代数视频教程，已经有人搬到了B站，戳：&lt;a href=&quot;https://space.bilibili.com/88461692?from=search&amp;amp;seid=17858642889162238492#/channel/detail?cid=9450&quot;&gt;3Blue1Brown&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;认真看了一遍，就算完成线性代数基本概念复习了。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. 概率和统计学知识复习&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;统计学知识是数据科学的基础，不懂统计很容易陷入知其然不知其所以然的困境，更无法对模型结果给出具有统计意义的解释。&lt;/p&gt;
+
+&lt;p&gt;为了重拾概率统计学知识，我首先快速过了一遍&lt;a href=&quot;https://book.douban.com/subject/3803611/&quot;&gt;《head first data analysis》&lt;/a&gt;，建立对数据分析最基本的认识。接着又阅读了&lt;a href=&quot;https://book.douban.com/subject/3193988/&quot;&gt;《head first statistics》&lt;/a&gt;，这本书结合现实生活中的例子讲解了基本的统计学概念和常见概率分布，值得细读。&lt;/p&gt;
+
+&lt;p&gt;另外还有Udacity的免费课程Intro to Inferential Statistics，课后练习题帮助我巩固了之前书上学到的知识点。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. 机器学习入门&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;课程链接： &lt;a href=&quot;https://www.coursera.org/learn/machine-learning&quot;&gt;Andrew Ng Machine Learning&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;虽然硕士阶段上过机器学习的课程，但长时间不用都还给老师了。特别推荐Andrew Ng的这门课程，是&lt;a href=&quot;https://link.zhihu.com/?target=https%3A//see.stanford.edu/Course/CS229&quot;&gt;斯坦福机器学习课程C229&lt;/a&gt;的简化版。课程内容深入浅出，对数学基础的要求不高，能做简单的求导和矩阵运算就够了。课程对几种传统机器学习方法的原理和适用场景都作了讲解。&lt;/p&gt;
+
+&lt;p&gt;区别于其他的机器学习课程，这门课程要求我们用Matlab或Octave动手实现算法，大部分代码都给了模板，所以不用担心不会Matlab或者Octave。通过动手实现算法，我们可以对算法原理有更深入了解，所以千万别偷懒，作业要认真对待。&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/imgs/2018-11-01/05.jpg?raw=true&quot; alt=&quot;课程证书&quot; /&gt;
+&lt;em&gt;课程证书&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;八月&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;[关键词]&lt;/strong&gt;  &lt;a href=&quot;https://www.udacity.com/course/machine-learning-engineer-nanodegree--nd009t&quot;&gt;Udacity机器学习工程师纳米学位&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Udacity 机器学习工程师纳米学位&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;考虑过很久报名 优达学城（Udacity）的机器学习纳米学位课程。在Quora上做了不少调研，觉得值得一试，恰好8月份的时候他们有促销活动，前两个月只要100美元/月，我盘算着两个月内完成课程（事实证明这完全是可行的），这样总共只需花费200美元。&lt;/p&gt;
+
+&lt;p&gt;很多人抱怨Udacity收费过高，尤其相比Udemy和Coursera等其他网课平台。我个人认为Udacity的课程性价比蛮高的，它提供了其他网课平台没有的人工服务，比如作业评阅，代码审阅，简历，cover letter和Linkedin档案修改，甚至还有一对一面试指导等服务。这样算下来真心划算。&lt;/p&gt;
+
+&lt;p&gt;Udacity授课采用&lt;strong&gt;小段视频课程（1～15分钟）+ 课后练习 + 项目&lt;/strong&gt;的形式，大部分机器学习知识点都有涉及，没有太难的数学推导，很适合初学者。如果有同学上这个课，一定要重视课后的习题和项目，从我的体验看，做项目的学习效果要好于看视频教程。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. 完善简历，Linkedin，Github&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;一直提醒自己，&lt;strong&gt;不能等觉得自己准备好了才开始找工作，学习是无穷无尽的&lt;/strong&gt;。因此从第二个月起就开始为接下来找工作做准备。&lt;/p&gt;
+
+&lt;p&gt;Udacity的纳米学位除了课程本身外，还提供职业指导服务，我就是在他们的帮助下反复修改和完善了简历，Linkedin以及GitHub （老师真的很耐心），对日后顺利找到工作很有帮助。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;简历是找工作的名片，一定要多花时间反复修改。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. 阅读《Python for Data Analysis》&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;这本书是pandas的作者写的，对Numpy和Pandas的使用做了详细讲解，值得花时间读读。但不要企图把里面的知识点和API都死记硬背下来，最好的阅读方法是先快速过一遍重要章节，待日后使用时碰到具体问题再回头翻书。&lt;/p&gt;
+
+&lt;p&gt;截止8月底，我的纳米学位只剩下一个深度学习的项目，以及最后的大项目没有完成。根据个人经验，如果每天能保证至少3个半小时的有效学习时间，2个月是完全可以拿下这门课程的。&lt;/p&gt;
+
+&lt;p&gt;PS: 七，八月这两个月的学习状态还不错，心态也较稳。但到了8月末的时候，人变得很焦躁，乃至中断学习回国玩去了。。&lt;/p&gt;
+
+&lt;h3&gt;九月&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;[关键词]&lt;/strong&gt;  SQL，数据库，增长，国内求职&lt;/p&gt;
+
+&lt;p&gt;八月底回国后，先陪家人飞重庆，成都玩了一个礼拜。旅行结束后只在家呆了三天便马不停蹄飞往北京，一呆就是二十天。在北京期间一直发烧生病，见了大学毕业后一直没见面的几个好兄弟，也面了几家互联网公司，暂且不表。&lt;/p&gt;
+
+&lt;p&gt;九月的学习效率非常差，只零零散散的根据国内面试时遇到的问题突击了部分知识点：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;增长黑客（growth hacking）相关知识知识&lt;/li&gt;
+  &lt;li&gt;AB test 及其在业界的应用&lt;/li&gt;
+  &lt;li&gt;阅读&lt;a href=&quot;https://book.douban.com/subject/6434328/&quot;&gt;《谁说菜鸟不会数据分析》&lt;/a&gt;，熟悉商业分析基本术语&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;数据库知识：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;数据库模型三大范式&lt;/li&gt;
+  &lt;li&gt;数据表索引的创建&lt;/li&gt;
+  &lt;li&gt;SQL习题训练 （&lt;a href=&quot;https://leetcode.com/&quot;&gt;Leetcode SQL&lt;/a&gt;，&lt;a href=&quot;https://mode.com/sql-tutorial/introduction-to-sql/&quot;&gt;The SQL Tutorial for Data Analysis&lt;/a&gt;）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;十月&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;[关键词]&lt;/strong&gt;   算法／数据结构，新加坡求职&lt;/p&gt;
+
+&lt;p&gt;九月底回的新加坡，先后拿到了一些面试，包括咨询公司，互联网创业公司，石油交易公司，中资企业，大学研究中心。新加坡公司的面试流程不比国内，节奏较慢，整个十月我都是一边学习，一边投简历，一边面试。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. 算法和数据结构&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;就算搞机器学习，数据结构／算法也非常重要，使用不同的数据结构和算法，效率可以千差万别。但那个时候已经没有时间从头开始啃算法了，我采取的学习策略是把最基本的知识点啃下来。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;熟悉常见排序算法原理和运算复杂度&lt;/li&gt;
+  &lt;li&gt;熟悉Python基本数据结构（LIST, SET, DICTIONARY, TUPLE）的索引，插入，删除，排序等的运算复杂度&lt;/li&gt;
+  &lt;li&gt;熟悉二叉树，递归算法，队列，堆栈等&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Python多线程和多进程的区别及应用&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;在面试时被问到了，因此花了些时间了解了Multi-Threads和Multi-Processes的区别，以及如何运用它们加快计算。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. leetcode简单题的练习&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;做了部分简单和中等难度的算法题&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. 个人博客的改版&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;在面试时给面试官看过博客上记录和展示的几个项目。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. 巩固统计学的知识&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;复习之前学的统计知识。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;6. Kaggle项目&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;做了几个简单的Kaggle项目。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;7. 一个简单的爬虫，自然语言处理项目&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;用Python爬了新加坡某求职网站数据分析方师的相关岗位信息，并做了简单的数据求职市场分析。&lt;/p&gt;
+
+&lt;h3&gt;十一月&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;[关键词]&lt;/strong&gt;   深度学习，Python爬虫&lt;/p&gt;
+
+&lt;p&gt;11月初的时候终于等来了offer，求职期间一共面了五家公司，最终拿到3个offer（数据挖掘研发工程师，BI开发，数据分析专家），另外两家也进到最后一轮面试，最终选择了研发工程师的职位。&lt;/p&gt;
+
+&lt;p&gt;拿到工作offer后压力小了很多，但学习不可以停步。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Udacity 深度学习项目&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;通过这个项目学习了用keras和tensorflow构建深度学习模型进行简单的图像识别。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Python爬虫&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;考虑到新工作可能需要写爬虫收集数据（后发现并不需要），就想着趁剩余不多的自由学习时间加强爬虫方面的能力。以前用R写过一些简单的爬虫脚本，加上有一年的全栈开发经验，大大降低了我学习爬虫的难度。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Youtube上的爬虫教程&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Youtube上有很多非常不错的教程资源，入门Python爬虫我看的是 &lt;a href=&quot;https://www.youtube.com/watch?v=nRW90GASSXE&amp;amp;list=PL6gx4Cwl9DGA8Vys-f48mAH9OKSUyav0q&quot;&gt;Python Web Crawler Tutorial&lt;/a&gt;。讲解特别好，虽然视频不长，但爬虫基本知识点都讲到了，还示范了如何实现多线程爬虫。这个教程我是慢慢慢慢啃完来的，直到能在不看源码的情况下实现一遍程序。&lt;/p&gt;
+
+&lt;p&gt;已经有热情的同学将视频搬运到B站了，可惜没有字幕。。 &lt;a href=&quot;https://www.bilibili.com/video/av7274410/?from=search&amp;amp;seid=13112971298512882425&quot;&gt;B站链接&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;如果想直接参考源代码，戳 &lt;a href=&quot;https://github.com/buckyroberts/Spider&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;阅读&lt;a href=&quot;https://book.douban.com/subject/26284925/&quot;&gt;《Web Scraping With Python》&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;内容非常全面，看起来也不难，如果想对用Python爬虫有更全面的了解，推荐抽时间看看这本书。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Udemy课程 &lt;a href=&quot;https://www.udemy.com/join/login-popup/?next=/scrapy-tutorial-web-scraping-with-python/learn/v4/overview&quot;&gt;Scrapy: Powerful Web Scraping &amp;amp; Crawling with Python&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;从常用的库Requests， Beautiful Soup 框架Scrapy都有介绍 (Scrapy真的很快)&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;准备udacity的最后一个项目&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;计划做自然语言处理方面的项目&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h2&gt;Q&amp;amp;A&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;我不喜欢现在的工作，要不要裸辞自学？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;裸辞有风险，辞职需谨慎，请参考 &lt;a href=&quot;https://www.zhihu.com/question/67809547/answer/257966899&quot;&gt;另一个问题下的答案&lt;/a&gt; 。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Udacity的项目怎么样，是不是完成项目就能找到工作了？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;不要期望完成一个网上学习项目就能找到工作，Udacity的项目不错，但是离工作要求还有距离，也许有人完成Udacity的项目后就顺利找到了工作，但每个人的基础不一样。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;我应该学习Python还是R？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Python和R都是很好的数据科学编程语言。我的建议是，如果你搞统计或者经济金融，没有编程背景，也不想往工程方向走，那就学R。反之，假如你已有一定编程基础，热爱编程，那建议你学习Python。时间充足且的话两样都学吧，你在职场上的竞争优势将更加明显。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;学习到什么程度可以开始找工作？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;我的建议是，从开始自学的那一刻开始，你就应该为找工作做准备了。关注招聘信息，修改简历，开始动手做小项目。为什么呢？因为数据科学这个坑太深了，你永远感觉有东西要学，永远觉得自己不合格，所以不能等待，&lt;strong&gt;fail fast is better than fail late.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;我需要投入多少时间才能完成学习？&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;以我自己为例，我不是一个自控力强的人，为了营造良好的学习环境，我很少呆家里学。好在新加坡到处有公共图书馆，免费Wi-Fi的速度也还不错，因此大部分时间都跑图书馆学习，图书馆人多就去星巴克。我的常规学习时间是从早上10点图书馆开门，一直学到下午六，七点，中间的这八个多钟头，采用&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E7%95%AA%E8%8C%84%E5%B7%A5%E4%BD%9C%E6%B3%95&quot;&gt;番茄工作法&lt;/a&gt;进行记录，每学习半个钟头短休息6分钟，每学习一个半小时长休息18分钟。其实，我们每个人的学习效率并没有自己想象的那么高。像我自己，一天下来能累积有效学习四个半小时就挺满意，如果能累积学习6小时甚至会很有成就感。&lt;strong&gt;有效学习时间是纯学习时间，不玩手机，不刷社交网络，不离开座位。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+  &lt;p&gt;&lt;img src=&quot;/imgs/2018-11-01/06.jpg?raw=true&quot; alt=&quot;番茄时钟记录表&quot; /&gt;
+&lt;em&gt;番茄时钟记录表&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>有了方差为什么还需要标准差？</title>
+   <link href="http://localhost:4000/data%20science%20%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/%E6%9C%89%E4%BA%86%E6%96%B9%E5%B7%AE%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E9%9C%80%E8%A6%81%E6%A0%87%E5%87%86%E5%B7%AE"/>
+   <updated>2018-09-04T00:00:00+08:00</updated>
+   <id>http://localhost:4000/data%20science%20%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/有了方差为什么还需要标准差？</id>
+   <content type="html">&lt;p&gt;知乎原回答：&lt;a href=&quot;https://www.zhihu.com/question/20534502/answer/350310648&quot;&gt;有了方差为什么需要标准差？&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;什么是方差？&lt;/p&gt;
+
+&lt;p&gt;方差是用来衡量数据离散程度的一个统计值，计算公式：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../imgs/variance.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;可以看出，方差的计算使用了数据集的所有数值，而不只是个别极值（如极大值和极小值），因此方差可以很好的反映数据的整体离散程度。&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;从公式理解，方差是数据偏离平均值距离的平方的平均值。可为什么是偏离平均值距离的平方的平均值，而不是偏离平均值距离的平均值呢？直觉上后者更容易理解才对。&lt;/p&gt;
+
+&lt;p&gt;完全正确，因此就有了标准差，对方差取平方根就得到了标准差:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../imgs/sd.jpg&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;标准差同样反映数据的离散程度，但因为它跟原始数据为同一个量纲，更加符合我们的直觉，也更方便解释。&lt;/p&gt;
+
+&lt;p&gt;例如我们可以说小明比全班平均身高高 0.1m (标准差)，但不能说小明比全班身高高 {0.1}^2m （方差)。&lt;/p&gt;
+
+&lt;p&gt;以上即方差和标准差的联系和区别。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>冥想可以替代睡眠吗？</title>
+   <link href="http://localhost:4000/%E7%9F%A5%E4%B9%8E%E5%9B%9E%E7%AD%94/%E5%86%A5%E6%83%B3%E5%8F%AF%E4%BB%A5%E6%9B%BF%E4%BB%A3%E7%9D%A1%E7%9C%A0%E5%90%97"/>
+   <updated>2018-07-20T00:00:00+08:00</updated>
+   <id>http://localhost:4000/%E7%9F%A5%E4%B9%8E%E5%9B%9E%E7%AD%94/冥想可以替代睡眠吗？</id>
+   <content type="html">&lt;p&gt;知乎原回答：&lt;a href=&quot;https://www.zhihu.com/question/30920485/answer/447243522&quot;&gt;冥想可以替代睡眠吗？&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;理论上可行，实际操作困难。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;刚接触冥想时就思考过这个问题，前阵子参加冥想课程时有幸听到内观老师&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E8%91%9B%E5%8D%B0%E5%8D%A1&quot;&gt;葛印卡&lt;/a&gt;先生给出的一个较为合理的解释，以下为大致内容：&lt;/p&gt;
+
+&lt;p&gt;人之所以需要睡眠，是要让&lt;strong&gt;身体和大脑&lt;/strong&gt;在一天的运作后得到充分休息。&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;首先，为了让身体休息，你得躺下来，站着或坐着都不行，只有躺下来身体才能彻底放松。&lt;/p&gt;
+
+&lt;p&gt;其次，大脑的休息方式不只睡眠一种，通过&lt;strong&gt;保持对呼吸和身体的觉知&lt;/strong&gt;同样可以。&lt;/p&gt;
+
+&lt;p&gt;“为什么呢？难道觉知本身不是一种思考行为吗，这样大脑仍旧运作又如何得到休息呢？“ 带着疑问我请教了助教老师。老师给出的回答很精妙：&lt;em&gt;保持觉知就能让大脑得到休息，通过保持对身体和呼吸的完全觉知，你的思绪不会到处游荡，没有想这想那，大脑就能得到休息。&lt;/em&gt;听了这话一开始我似懂非懂，仔细一琢磨只觉茅塞顿开。是啊，&lt;strong&gt;觉知不等于思考&lt;/strong&gt;，因为觉知是不带有任何主观偏见的，我们觉知到的所有感受，无论是气息进出鼻孔，或者感觉身体微凉，都只是当下实实在在的感受，不需要我们去思考或评判，我们也不应对它们升起贪爱或者嗔恨的习性反应，这样我们的大脑其实处于非常放松的状态。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;综上，通过平躺和对身体以及呼吸保持觉知，冥想可以替代睡眠。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;后来我在失眠时多次实践过这一方法，并惊喜的发现，通过保持对身体和呼吸的觉知，哪怕睡眠时间大幅度缩减，第二天起床仍觉精神饱满，甚至比平常更感精力充沛。&lt;/p&gt;
+
+&lt;p&gt;然而，理论上可行，不代表实际操作就能如意。实际操作分这样三种情况：&lt;/p&gt;
+
+&lt;p&gt;情况一，冥想着冥想着睡着了；&lt;/p&gt;
+
+&lt;p&gt;情况二，心猿意马，不停思考各种事情，如担心明天起不来床上班迟到。这种状态下大脑无法得到休息，第二天自然感觉疲劳。&lt;/p&gt;
+
+&lt;p&gt;情况三，成功保持对身体和呼吸的觉知，恭喜你，哪怕只睡两三个小时甚至整晚不睡，你同样得到了充足的休息。不过想每一次都能保持这样的理想状态真的很难，需要长期的冥想练习。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;总结： 理论上冥想可以代替睡眠，但实际操作容易因为方法不当或定力不足难以保持最佳冥想状态。&lt;/strong&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>机器学习和数据挖掘的界限在哪里？</title>
+   <link href="http://localhost:4000/data%20science%20%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%92%8C%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%9A%84%E7%95%8C%E9%99%90%E5%9C%A8%E5%93%AA%E9%87%8C"/>
+   <updated>2018-05-11T00:00:00+08:00</updated>
+   <id>http://localhost:4000/data%20science%20%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/机器学习和数据挖掘的界限在哪里？</id>
+   <content type="html">&lt;p&gt;知乎原回答：&lt;a href=&quot;https://www.zhihu.com/question/41189863/answer/389155123&quot;&gt;机器学习和数据挖掘的界限在哪里？&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;借用台大林轩田教授在他的&lt;a href=&quot;https://www.coursera.org/learn/ntumlone-mathematicalfoundations/lecture/XItlt/machine-learning-and-other-fields&quot;&gt;机器学习基石课程&lt;/a&gt;里对二者区别给出的解释：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/imgs/2018-05-11/data_mining_vs_machine_learning.jpg?raw=true&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;&lt;strong&gt;定义&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;机器学习(ML)：从数据中学习一个假设g，来逼近真实的目标函数f，主要用于预测。&lt;/p&gt;
+
+&lt;p&gt;数据挖掘(DM)：从大量数据中寻找“有趣的信息”，比如经典案例“啤酒与尿布”，“啤酒”和“尿布”两个看上去没有关系的商品摆放在一起进行销售帮助获得了很好的销售收益，商品之间的这种关联性就是一种有趣的信息，发现有趣的信息的过程就是数据挖掘。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;区别与联系&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;如果DM要寻找的有趣的信息正好是g，即一个逼近真实目标函数的假设，这种情况下数据挖掘和机器学习就没区别，比如KDDCup这样的数据挖掘比赛中 DM就等同于ML。但很多情况下数据挖掘的目的不是寻找g，而是其他有趣的信息，这时候DM就不能等同于ML。
+如果DM要寻找的有趣的信息跟ML里要寻找的g相关，那DM和ML就成了相辅相成的关系。
+传统的DM还包括另一个领域：大数据库的高效计算。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;总结&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;ML和DM二者非常相似，但有一些区别，现实应用中往往密不可分。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>假设检验的逻辑是是什么？</title>
+   <link href="http://localhost:4000/data%20science%20%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C%E7%9A%84%E9%80%BB%E8%BE%91%E6%98%AF%E6%98%AF%E4%BB%80%E4%B9%88"/>
+   <updated>2018-03-30T00:00:00+08:00</updated>
+   <id>http://localhost:4000/data%20science%20%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/假设检验的逻辑是是什么？</id>
+   <content type="html">&lt;p&gt;知乎原回答：&lt;a href=&quot;https://www.zhihu.com/question/20254932/answer/354387118&quot;&gt;假设检验的逻辑是是什么？&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;**
+假设检验的过程可类比法院审判，先假定被告无罪，除非原告律师拿出足够证据证明其有罪，否则接受无罪判定。**&lt;/p&gt;
+
+&lt;p&gt;在这个例子中：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;原假设&lt;/strong&gt;即&lt;strong&gt;“被告无罪”&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;替代假设&lt;/strong&gt;即&lt;strong&gt;“被告有罪”&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;犯罪证据&lt;/strong&gt;即抽检到的&lt;strong&gt;样本&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;显著性水平&lt;/strong&gt;决定证据得有多强才能推翻原假设，宣告定罪&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Using %run magic command with Jupyter Notebook</title>
+   <link href="http://localhost:4000/python/Using-run-magic-command-with-Jupyter-Notebook"/>
+   <updated>2018-01-17T00:00:00+08:00</updated>
+   <id>http://localhost:4000/python/Using %run magic command with Jupyter Notebook</id>
+   <content type="html">&lt;p&gt;When working with Jupyter Notebook, in many cases we want to share some code blocks between different notebooks to reduce code redundancy.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;Good news is that in newer Jupyter, we can achieve this with the &lt;strong&gt;%run&lt;/strong&gt; magic command, which allows us to run one jupyter notebook inside another.&lt;/p&gt;
+
+&lt;p&gt;For example, we have a jupyter notebook named utility.ipynb, which defines some utility functions to be used by a set of notebooks. Instead of copy and paste the code in each notebook, we can simply add the following code into the top of each notebook:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;%run utility.ipynb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Running the above magic command give us to whatever is defined in utility.ipynb, including both variables and functions.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-run target=&amp;quot;_blank&amp;quot;&quot;&gt;Official doc&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>裸辞转行程序员，给自己一年时间可行吗？</title>
+   <link href="http://localhost:4000/%E7%9F%A5%E4%B9%8E%E5%9B%9E%E7%AD%94/%E8%A3%B8%E8%BE%9E%E8%BD%AC%E8%A1%8C%E7%A8%8B%E5%BA%8F%E5%91%98-%E7%BB%99%E8%87%AA%E5%B7%B1%E4%B8%80%E5%B9%B4%E6%97%B6%E9%97%B4%E5%8F%AF%E8%A1%8C%E5%90%97"/>
+   <updated>2017-11-10T00:00:00+08:00</updated>
+   <id>http://localhost:4000/%E7%9F%A5%E4%B9%8E%E5%9B%9E%E7%AD%94/裸辞转行程序员，给自己一年时间可行吗？</id>
+   <content type="html">&lt;p&gt;知乎原回答：&lt;a href=&quot;https://www.zhihu.com/question/67809547/answer/257966899&quot;&gt;22岁非计算机专业工科妹子裸辞转行程序员，已自学Python两个月准备开始OJ，给自己一年时间可行吗？&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;今年六月底裸辞(商务智能转大数据)的来答一发。支持妹子转行，不支持裸辞，原因如下&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;不要高估自己的自律能力，辞职前以为不用工作了一天24小时，除去吃喝拉撒至少能学10小时，TYTN，能做到每天有效学习（我说的是真正的有效学习时间，不刷手机，不逛知乎）8小时以上的都是神人，大部分人能做到5～6小时就算很好，不信你用番茄时钟方法记录你现在每天的工作学习时间试试&lt;/li&gt;
+  &lt;li&gt;你永远准备不好，或者说你永远感觉自己没准备好，哪怕你自学一年，自学的东西跟实际生产环境还是有很大差距。你懂的越多，你会发现不懂的更多，结果就是各种不自信，觉得凭自己的目前的实力仍旧无法胜任好一份工作，要不再学一段时间吧，然后无限循环&lt;/li&gt;
+  &lt;li&gt;没了工作，断了经济来源，或多或少会焦虑，缺乏安全感，甚至产生自我怀疑。即便你爸妈养你，也要准备好承受来自他们，甚至是你七大姑八大姨精神上的压力（我辞职全程瞒着父母）。如果受不了压力，你就会有老子不玩了，给我份工作我就干的冲动想法&lt;/li&gt;
+  &lt;li&gt;你得忍受寂寞以及长时间的孤军奋战，晚睡晚起没人管你，也别指望有人陪你玩，别人都要上班呢，而且我估计你也不会有心思愉快玩耍&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;以上这些，现在踌躇满志的你可能无法体会，建议你以“脱产”，“自学”，“转行”，“辞职”等关键词搜索知乎，看看其他人分享的经验。
+最后，如果你真有这个决心，不妨工作日每天抽出两到三小时（如果工作确实太忙没有多余时间精力，可以试着跟上级沟通，争取减少一定的工作量），合理利用周末时间，选择一个方向，制定合理的学习计划，再扎扎实实的按计划执行，我保证你一年之内可以找到工作。记住，定好一个方向很重要，不要东一棒槌，西一榔头，想清楚以后是要做后台开发，爬虫，数据分析，还是其他。&lt;/p&gt;
+
+&lt;p&gt;以上建议只针对90%以上的具备正常学习能力和智商的人，如果题主自信自己学习能力超群，超级自律，以往有过多次自学逆袭成功的经历，那你还真可以试试看，毕竟靠自学成功的人也有。&lt;/p&gt;
+
+&lt;p&gt;我有一些不错的学习资料和鸡汤。如果有知友感兴趣，我占个坑日后再来分享。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Sending email programmatically with Python</title>
+   <link href="http://localhost:4000/python/Sending-email-programmatically-with-Python"/>
+   <updated>2017-08-20T00:00:00+08:00</updated>
+   <id>http://localhost:4000/python/Sending email programmatically with Python</id>
+   <content type="html">&lt;p&gt;Below is the code:&lt;/p&gt;
+
+&lt;!-- more --&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# you need install the smtplib package
+import smtplib
+
+# sender email address
+fromaddr = 'your-email-address'
+
+# recipient email address
+toaddrs = 'target-email-address'
+
+# email content
+msg = &quot;\r\n&quot;.join([
+    &quot;From: &quot;+fromaddr,
+    &quot;To: &quot;+toaddrs,
+    &quot;Subject: Email from Python!&quot;,
+    &quot;&quot;,
+    &quot;Hi there!&quot;
+])
+
+# your gmail account
+username = 'your-email-address'
+password = 'your-email-password'
+
+server = smtplib.SMTP('smtp.gmail.com', 587)
+server.ehlo()
+server.starttls()
+server.login(username, password)
+server.sendmail(fromaddr, toaddrs, msg)
+
+# do not forget to quit the server
+server.quit()
+
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>冥想對你有幫助嗎？你有什麼冥想的經驗分享？</title>
+   <link href="http://localhost:4000/%E7%9F%A5%E4%B9%8E%E5%9B%9E%E7%AD%94/%E5%86%A5%E6%83%B3%E5%B0%8D%E4%BD%A0%E6%9C%89%E5%B9%AB%E5%8A%A9%E5%97%8E-%E4%BD%A0%E6%9C%89%E4%BB%80%E9%BA%BC%E5%86%A5%E6%83%B3%E7%9A%84%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB"/>
+   <updated>2017-05-03T00:00:00+08:00</updated>
+   <id>http://localhost:4000/%E7%9F%A5%E4%B9%8E%E5%9B%9E%E7%AD%94/冥想對你有幫助嗎？你有什麼冥想的經驗分享？</id>
+   <content type="html">&lt;p&gt;知乎原回答：&lt;a href=&quot;https://www.zhihu.com/question/19845687/answer/139688538&quot;&gt;冥想對你有幫助嗎？你有什麼冥想的經驗分享？&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;两年半冥想经验，仍在实践学习摸索中。&lt;/p&gt;
+
+&lt;p&gt;近几年来冥想已成为许多都市人的一种生活习惯，尤其是在硅谷和华尔街，早已是司空见惯，我自己断断续续冥想将近两年，它已成为我生活里不可割舍的一部分。我亲身体会到了冥想与不冥想所导致的两种截然不同的生活状态，坚持冥想的我，明显感到更轻松，自信，说话发声都更坚定有力；而如果连续几天不冥想，则容易浮躁，做事情的效率大打折扣。&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;与冥想结缘，得说回两年前，那时我第一次走出国门留学，对新事物都抱着乐意尝试的学习态度，某天收到学校Wellness Centre（学校负责学生身心健康的机构，类似于国内大学的心理辅导中心）邮件说有一个关于冥想的workshop，就抱着好奇的心态报了名。还记得第一堂冥想课在学校的商学院进行，指导老师是一名资深的冥想实践者，短短一小时课程，老师引导我们闭上眼睛，细细感受周围的环境：身体与地板之间的触感，房间内空气的湿度和温度，远处马路传来的时有时无的马达声… 有那么几分钟，我的思维像是跳跃到了另外一个空间，内心没有一丝杂念（后来我才懂那就是冥想者所要追求的状态 – absense of thought），那成了我那段时间以来最美妙的几分钟。冥想结束后我仍然沉浸于那非凡的愉悦体验中无法自拔。就是这短短几分钟的体验开启了我冥想的旅程。&lt;/p&gt;
+
+&lt;p&gt;接下来的几次课程老师依次介绍了mindful eating, mindful walking等怎样将冥想融入日常生活，也令我大开眼界，原来冥想没有固定的模式，不是非得盘腿坐在蒲团上，闭着眼睛一动不动的才叫冥想，冥想所强调的无非关注当下，清空杂念，冥想者可以是坐着，站着，甚至是躺着，可以在吃饭的时候进行，也可以在走路的时候进行，从这种意义上来说，围棋，F1赛车，日本的茶道等也可说是冥想的一种，因为它们都要求从事着心无旁骛。&lt;/p&gt;
+
+&lt;p&gt;没有专业老师的指导，我从网上找了各种学习资料进行冥想自学。这个阶段我试用了两个很好的冥想入门手机app。第一个叫&lt;a href=&quot;https://www.headspace.com/&quot;&gt;Headspace - Meditation made simple&lt;/a&gt;, 上面有一个免费的十天入门课程，制作精良的动画和每天十分钟的练习对刚入门的我起到了很大的帮助，强烈推荐给每一位冥想入门者。另外一个app叫&lt;a href=&quot;https://www.calm.com/&quot;&gt;Calm&lt;/a&gt;，上面有许多冥想指导语音和帮助带入冥想情境的音乐，一直到今天我都还在用calm，每天午睡的时候听着它的雨声能很快进入睡眠，&lt;/p&gt;
+
+&lt;p&gt;冥想的好处实在令人叹为观止，我常听一档&lt;a href=&quot;https://tim.blog/podcast/&quot;&gt;The Tim Ferriss Show&lt;/a&gt;的Podcast，主持人是传奇作家和投资者Tim Ferriss，Tim在节目里采访了许许多多各个领域的大师级人物以及成功的企业家。许多访谈者都不止一次强调冥想给他们的工作和生活所带来的巨大影响，有好几期节目Tim还专门跟听众分享冥想的知识。&lt;/p&gt;
+
+&lt;p&gt;后来发现身边冥想的朋友越来越多，有好几个朋友还参加了&lt;a href=&quot;https://www.dhamma.org/zh-HANS/index&quot;&gt;Vipassana Meditation&lt;/a&gt;的十日课程，2016年中的时候报了槟城九月份的课程，可惜后来因为一些事未能成行。参加过该课程几次的朋友说，经历了非常系统长时间的练习，你才会对冥想有深入和科学的认识。他说刚完成课程出来的头几天，感觉自己就像一个超体，我在一旁听了艳羡不已。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;想了解更多冥想十日课程推荐阅读奶牛Denny的如何冥想？&lt;a href=&quot;http://www.dennythecow.com/?p=547&quot;&gt;2500年的智慧–荒岛十日记&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;现在我通常在晚上睡前或者早起后进行15-20分钟的冥想，很多时候免不了静不下心来，脑袋里不停蹦出各种杂念。但是正如许多Tim节目里的访谈对象所说，20分钟里如果有2分钟能有两分钟做到absence of thought，这20分钟就足够带来巨大的收益，依据我自己的实践，这话说的一点不差。状态不好有时候二十分钟下来脑袋里面都被各种杂念占据，但请记住，当你控制不住走神时，不要给自己贴负面标签，不要批评自己意志不够坚定，而是要把自己从各种意念里面抽离出来，当一个旁观者，承认意念的存在，尝试去观察它们，体会它们，而不是控制它们，因为你越渴望控制或者驱赶这些念头的时候，它们就越不受控制。你真正要做的，是把注意力重新转移到呼吸上面来，体会随着呼吸胸腔作有规律的起伏。总的来说，随着你坚持练习的时间越长，你会更懂怎么去处理各种杂念。&lt;/p&gt;
+
+&lt;p&gt;我提议，在这个生活节奏加快，信息过载的时代，每个人都应该尝试冥想，体会他给你带来的安定的力量，因为你一定会爱上这种感觉。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>你认为 BI (商业智能）在企业的作用和定位是什么？</title>
+   <link href="http://localhost:4000/data%20science%20%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/%E4%BD%A0%E8%AE%A4%E4%B8%BA-BI-(%E5%95%86%E4%B8%9A%E6%99%BA%E8%83%BD-%E5%9C%A8%E4%BC%81%E4%B8%9A%E7%9A%84%E4%BD%9C%E7%94%A8%E5%92%8C%E5%AE%9A%E4%BD%8D%E6%98%AF%E4%BB%80%E4%B9%88"/>
+   <updated>2017-04-07T00:00:00+08:00</updated>
+   <id>http://localhost:4000/data%20science%20%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/你认为 BI (商业智能）在企业的作用和定位是什么？</id>
+   <content type="html">&lt;p&gt;知乎原回答：&lt;a href=&quot;https://www.zhihu.com/people/zuckgo/answers?page=2&quot;&gt;你认为 BI (商业智能）在企业的作用和定位是什么？&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;举一个自己的项目实例，今年年初把公司旗下的十几家饭店的POS机数据全部整合进QlikView，建好数据模型，并根据各部门的商业分析需求建好不同的图形和数据透视表。餐饮部门的同事需要提取任何数据，无论是宏观的各饭店当月总收入，还是微观的单品销售数量和利润，全部一目了然。只需纯鼠标点击操作，就可以轻易获取想要的几乎任何数据，而且数据是每日更新的。在此前，都是手动把raw data拿出来，再放到EXCEL里面各种VLOOKUP加整合，每个月都要花好几个人整个礼拜的时间。&lt;/p&gt;
+
+&lt;p&gt;商务智能在不同领域的作用其实大同小异，无非是整合数据，数据可视化直观易懂，方便决策者参考和决策。前几天看到一篇文章，对商务智能在酒店场景的应用作了到位的概括，特意作了翻译，原文参考 &lt;a href=&quot;https://www.hotelexecutive.com/business_review/2235/top-10-benefits-of-a-business-intelligence-software-solution&quot;&gt;Top 10 Benefits of a Business Intelligence Software Solution&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;老话说的好，“你不知道你不知道什么”。 然而，全世界各地的酒店管理者都在基于有限的信息作关键性的业务决策。有些人依赖IT部门产生的报告，另一些则依靠“直觉”。&lt;/p&gt;
+
+&lt;p&gt;由IT部门提供报告的一个局限性是有时候他们会提供具有误导性的报告，导致最终决策并不总是正确的。另一方面，基于直觉的决策则不是由数据驱动的，可能正确也可能错误。长此以往，这种决策机制可能导致生产率下降和利润流失。&lt;/p&gt;
+
+&lt;p&gt;为了在如今的经济环境下繁荣发展，越来越多的企业经理人开始转向商务智能应用，将其用于评估风险和做更明智的决策。商务智能解决方案可帮助你收集，分析和各种各样的数据，以获得竞争优势，在拥挤的市场脱颖而出。可喜的是，商务智能技术不仅比过去更加经济实惠，而且更容易实施。&lt;/p&gt;
+
+&lt;p&gt;将商务智能方案融入您的日常业务运营中有许多的好处，从帮助降低成本到提高客户满意度。有些好处是可清楚衡量的，一些更无形的好处，比如决策的改善能给酒店巨大的优势以超越其竞争对手。下面列出了将商务智能应用于我们的日常业务的十大好处。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;轻松访问数据 多年来，酒店已经从许多软件系统收集事务数据，并对其进行编译，以改进业务流程。然而，随着这些丰富的数据资源的增长，管理，评估和处理数据的任务变得更加繁重。一商业智能解决方案可以从多个通常是不同的系统以及组织内不同地方收集信息，并整合到一个单一的综合门户中，使管理人员能够轻松访问所有数据，进行全面的报告，审计和预测分析。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;.对数据的等同访问 大多数酒店经营者意识到，咨询是否全面往往能决定成败。然而，在许多酒店，只有IT部门的人能获取到所有的数据。通过企业范围的商业智能解决方案，每个经理都可以获得关键信息，例如财务数据和绩效指标。数据以电子方式收集并以易于理解的格式提供，即使大多数非技术用户也能理解业务并确定驱动日常活动的因素。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;更准确的信息 一个商务智能解决方案能大大减少企业内表单的数量，而这些表单通常包含了许多错误，遗漏和重复的信息。商业智能解决方案能大大减少企业内电子表单的数量，而这些表单通常包含了许多错误，遗漏和重复的信息。商务智能报告是自动创建的，而且准确的和不断更新的。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;响应更快 有了商务智能，酒店经理每天都可以查看报告，而不需要等到月底，这使得他们能对即便是最不可预测的情况作快速响应。深入了解操作数据和自定义报告视图的能力使管理人员能够更清楚地了解业务中发生的情况。掌握这些知识，他们可以立即进行影响性能的调整，而不是等到最后发现的时候已经太晚了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;改善决策 当数据很容易获取到而且很好理解时，管理者能有效快速作出信息充足和有洞见的决策。此外，日常问题不太可能升级到管理层次。当经理可以访问报告，图表，图表和分析时，他们也有能力采取积极主动的措施来提高绩效，并确保满足利润预期。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;发现问题领域 商业智能可以帮助发现酒店运营中的盲点问题区域，例如欺诈或性能低下。例如，如果您的餐厅经理注意到特定库存料品的耗损增加，但是找不到该料品的匹配销售量，则商业智能解决方案可以使他能够审查采购与收入，并在组织内进行必要的调整。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;更有效的库存监测 酒店可以使用商业智能来评估供应商，跟踪支出，衡量绩效，分析采购数据，进行深入的财务分析并制定策略以减少支出。采购人员还可以使用商业智能解决方案来确保合规性并减少“随意购买”。通过详细的报告和仪表板，员工可以清楚地了解消费模式和趋势，并做出更明智的决策，节省资源并提高盈利能力。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;帮助谈判 当谈到与供应商谈判时，准确把握事实和数字是非常宝贵的。商业智能解决方案可以为您提供所需的供应商绩效数据，以保持一个坚定有力的立场 - 如按时交货趋势，拒绝率和价格变化。因此，您可以讨论合同的所有方面，并可能争取到更有利的条款。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;改进营销分析 酒店业场馆现在可以利用与亚马逊，Costco和沃尔玛这样以消费者为中心的零售巨头所使用的相同类型的商业智能，来做出最新的营销决策并提高市场效率。借助商业智能解决方案，您可以确定广告，直接邮件营销活动和电子邮件促销的成功率。然后，您可以针对特定客人调整您的营销力度，以争取竞争优势。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;改善客人体验 将商业智能集成到您的日常操作中，可以帮助您创造更难忘的访客体验，并建立长期的客户关系。使用商业智能解决方案，您可以创建详细的访客资料，包括历史，行程，兴趣和偏好。有了这些信息，您可以预期客人的需求，并提供更加个性化的服务，这提高了满意度和忠诚度。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;在当今的经济环境中，竞争激烈，客户越来越期待出色的个性化服务。为最大限度地提高效率，仅仅靠电子表格和直觉显然已经不够。您必须比以往更加努力，以保护市场份额并发现新的市场机会。商业智能解决方案可以通过利用酒店积累的丰富数据帮助酒店成功 - 无论是现在还是未来，让您在即便困难的经济环境下也得以生存和繁荣。&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>数据分析和商业智能的区别？</title>
+   <link href="http://localhost:4000/data%20science%20%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%92%8C%E5%95%86%E4%B8%9A%E6%99%BA%E8%83%BD%E7%9A%84%E5%8C%BA%E5%88%AB"/>
+   <updated>2016-06-20T00:00:00+08:00</updated>
+   <id>http://localhost:4000/data%20science%20%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/数据分析和商业智能的区别？</id>
+   <content type="html">&lt;p&gt;知乎原回答：&lt;a href=&quot;https://www.zhihu.com/question/19893070/answer/91105084&quot;&gt;数据分析和商业智能的区别？&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;商务智能是IT和数据分析的完美结合，它使得不懂编程但具备数据分析能力和商业直觉的分析人员能够便捷而快速地提取，清理，整合各种数据源（mysql，Salesforce, Hive等等），并创建复杂动态图形和仪表。在各种商务智能平台出现之前，这些都只能借助于复杂SQL脚本或者SAS这类专业数据分析工具才能实现。&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;数据分析和商务智能在流程上的区别下图概括的很好。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/imgs/2016-06-20/01.jpg?raw=true&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/imgs/2016-06-20/02.jpg?raw=true&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;图片来自网上，找不到原地址了，侵图删。&lt;/p&gt;
+</content>
+ </entry>
+ 
+
+</feed>

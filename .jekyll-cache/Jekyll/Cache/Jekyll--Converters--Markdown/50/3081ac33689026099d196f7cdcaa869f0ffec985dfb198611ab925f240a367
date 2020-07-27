@@ -1,0 +1,15 @@
+I"�<p>知乎原回答：<a href="https://www.zhihu.com/question/20254932/answer/354387118">假设检验的逻辑是是什么？</a></p>
+
+<p>**
+假设检验的过程可类比法院审判，先假定被告无罪，除非原告律师拿出足够证据证明其有罪，否则接受无罪判定。**</p>
+
+<p>在这个例子中：</p>
+
+<p><strong>原假设</strong>即<strong>“被告无罪”</strong></p>
+
+<p><strong>替代假设</strong>即<strong>“被告有罪”</strong></p>
+
+<p><strong>犯罪证据</strong>即抽检到的<strong>样本</strong></p>
+
+<p><strong>显著性水平</strong>决定证据得有多强才能推翻原假设，宣告定罪</p>
+:ET
