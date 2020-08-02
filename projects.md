@@ -26,7 +26,7 @@ title: Projects 项目
 <center>新加坡某天早上9点地铁网客流量预测结果</center>
 <br/>
 
-![](./imgs/projects/city_hall.jpg)
+![](./imgs/projects/City_Hall.jpg)
 <center>新加坡City Hall地铁站某天的出站人数预测</center>
 <br/>
 
