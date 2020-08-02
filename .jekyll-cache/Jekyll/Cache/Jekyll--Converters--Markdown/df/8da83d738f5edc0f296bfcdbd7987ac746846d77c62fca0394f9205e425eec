@@ -1,0 +1,27 @@
+I"w<p>进行中…</p>
+
+<h2>短期地铁网客流量预测</h2>
+
+<p>本项目提出一个概率模型用于预测地铁网的客流量：包括各地铁站进出口人流量，任意时间点站与站之间的客流量和站台客流量。通过精准预测客流量，一方面，我们能够实时监控地铁网的客流量分布情况，对地铁系统的运作有更好的了解；另一方面还能预知可能出现的异常客流量，从而有针对性地进行交通疏导，减少拥挤的发生以及提高乘客的乘车体验。</p>
+
+<p>如下图所示，本模型一个</p>
+
+<p><img src="./imgs/projects/FLOW_Framework.jpg" alt="" /></p>
+
+<p><br /></p>
+
+<h3 id="project-1">project 1</h3>
+
+<p>description</p>
+
+<p><img src="./imgs/ba_001.jpg" alt="" /></p>
+
+<p><br /></p>
+
+<h3 id="project-1-1">project 1</h3>
+
+<p>description</p>
+
+<p><img src="./imgs/ba_001.jpg" alt="" /></p>
+
+:ET

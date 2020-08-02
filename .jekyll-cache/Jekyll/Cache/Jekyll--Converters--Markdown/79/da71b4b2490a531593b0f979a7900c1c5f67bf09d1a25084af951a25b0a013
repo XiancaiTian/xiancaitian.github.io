@@ -1,0 +1,37 @@
+I"�<p>进行中…</p>
+
+<h1 id="短期地铁网客流量预测"><strong>短期地铁网客流量预测</strong></h1>
+
+<p>本项目提出一个概率模型用于预测地铁网的客流量：1）包括各时间段各地铁站进出口人流量；2）任意时间点站与站之间客流量；3）以及站台客流量。通过精准预测客流量，一方面，我们能够实时监测地铁网的客流量分布情况，对地铁系统的运作有更好的了解；另一方面能预知可能出现的异常客流量，从而有针对性地进行交通疏导，减少拥挤的发生以及提高乘客的乘车体验。</p>
+
+<p>如下图所示，本模型主要的预测任务包括：</p>
+<ul>
+  <li>时间序列的Origin-Destination(OD)矩阵预测</li>
+  <li>地铁网每两站之间的不同路径的旅行时间概率分布拟合</li>
+  <li>多路径情况下的选择偏好估计</li>
+</ul>
+
+<p><img src="./imgs/projects/FLOW_Framework.jpg" alt="" /></p>
+
+<p>模型借助已有成熟机器学习算法，以及截断高斯混合分布（EM算法求解），实现了对地铁客流量的精准预测。下面为预测结果示例：</p>
+
+<p><img src="./imgs/projects/in-situ-passenger.jpg" alt="" /></p>
+<center>新加坡某天早上9点地铁网客流量预测结果</center>
+
+<p><br /></p>
+
+<h3 id="project-1">project 1</h3>
+
+<p>description</p>
+
+<p><img src="./imgs/ba_001.jpg" alt="" /></p>
+
+<p><br /></p>
+
+<h3 id="project-1-1">project 1</h3>
+
+<p>description</p>
+
+<p><img src="./imgs/ba_001.jpg" alt="" /></p>
+
+:ET
