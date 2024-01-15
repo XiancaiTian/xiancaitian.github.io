@@ -4,7 +4,7 @@
 permalink: /:categories/:title
 encoding: UTF-8
 
-production_url : https://xiancaitian.github.io
+production_url : https://shawntian.github.io
 
 highlighter: pygments
 
