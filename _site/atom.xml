@@ -4,7 +4,7 @@
  <title>Shawn's blog</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-08-02T12:02:32+08:00</updated>
+ <updated>2024-01-16T19:37:57+08:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Shawn TIAN</name>
@@ -702,10 +702,10 @@
 import smtplib
 
 # sender email address
-fromaddr = 'your-email-address'
+fromaddr = &apos;your-email-address&apos;
 
 # recipient email address
-toaddrs = 'target-email-address'
+toaddrs = &apos;target-email-address&apos;
 
 # email content
 msg = &quot;\r\n&quot;.join([
@@ -717,10 +717,10 @@ msg = &quot;\r\n&quot;.join([
 ])
 
 # your gmail account
-username = 'your-email-address'
-password = 'your-email-password'
+username = &apos;your-email-address&apos;
+password = &apos;your-email-password&apos;
 
-server = smtplib.SMTP('smtp.gmail.com', 587)
+server = smtplib.SMTP(&apos;smtp.gmail.com&apos;, 587)
 server.ehlo()
 server.starttls()
 server.login(username, password)
